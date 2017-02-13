@@ -1,0 +1,15 @@
+* {
+  box-sizing: border-box;
+}
+
+.header {
+    display: block;
+    height: 100px;
+    width: auto;
+    text-align: center;
+    background-image: url(Images/final_fantasy_banner.png);
+    background-size: contain;
+    border-bottom: 1px grey solid;
+    background-repeat: no-repeat;
+    background-position: center;
+}
