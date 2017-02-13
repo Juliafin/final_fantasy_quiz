@@ -29,7 +29,9 @@ margin: auto;
 top: 120px;
 left: 0px;
 right: 0px;
-border: 3px rgb(37, 112, 149) solid;
+border-bottom: 3px rgb(37, 112, 149) solid;
+border-right: 3px rgb(78, 152, 237) solid;
+border-left: 3px rgb(78, 152, 237) solid;
 background: linear-gradient(rgba(73,119,138,123), rgba(70,201,255,12));
 border-radius:10px;
 }
@@ -37,6 +39,7 @@ border-radius:10px;
 div.welcome-text {
   color: white;
   font-family: FinalFantasy;
+  font-size: 20px;
   font-weight: bold;
   text-align: center;
   vertical-align: center;
