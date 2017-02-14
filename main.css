@@ -157,6 +157,6 @@ p{
 }
 
 
-.answers:hover, .answer-submit:hover {
+.welcome-text, .answers:hover, .answer-submit:hover {
   filter: brightness(150%);
 }
