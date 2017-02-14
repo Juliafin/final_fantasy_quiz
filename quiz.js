@@ -13,6 +13,14 @@
 parse the selected box, and check whether the content of the answer div selected answer matches at the current index for the answer array. Do this by using regex to strip the (A., B., C., D.) from the div text, matching it against the current index of the answer key (if statement)
 11. If it does, increment the "questions right" in the question box. Then flash the divs not selected with a red alpha gradient.
 12. On the last submit button press (add an if statement on the current index), remove the quiz divs, and create a new set of divs showing the user their result, and congratulating the user for making it through the quiz. Also, the last question is free no matter what, so match the result regardless (if statement on the last question)
+
+Stretch goals:
+LV for questions
+Hp/MP for answered questions
+Avatar and Name choice
+Custom Cursor - hand
+sound effects - chirp
+
 */
 
 var quizState = {

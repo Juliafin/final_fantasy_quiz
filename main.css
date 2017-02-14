@@ -1,3 +1,4 @@
+
 @font-face {
     font-family: FinalFantasy;
     src: url('fonts/final_fantasy_36_font.ttf');
@@ -50,10 +51,59 @@ button.welcome-text {
     white-space: normal;
 }
 
+
+.p1 {
+  position: absolute;
+  top: 44px;
+  left: 0px;
+  right: 0px;
+}
+
+.p2 {
+  position: absolute;
+  top: 90px;
+  left: 0px;
+  right: 0px;
+}
+
+/*Characters*/
+.char {
+  width: 75px;
+  height: 75px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: relative;
+  display: inline-block;
+  background-position-x: 12px;
+  top: 72px;
+}
+
+.m-dragoon{background-image: url(Images/charclasses/M_dragoon.png);}
+.f-dragoon{background-image: url(Images/charclasses/F_dragoon.png);}
+.m-whitemage{background-image: url(Images/charclasses/M_whitemage.png);}
+.f-whitemage{background-image: url(Images/charclasses/F_whitemage.png);}
+.m-redmage{background-image: url(Images/charclasses/M_redmage.png);}
+.f-redmage{background-image: url(Images/charclasses/F_redmage.png);}
+.m-blackmage{background-image: url(Images/charclasses/M_blackmage.png);}
+.f-blackmage{background-image: url(Images/charclasses/F_blackmage.png);}
+.m-ninja{background-image: url(Images/charclasses/M_ninja.png);}
+.f-ninja{background-image: url(Images/charclasses/F_ninja.png);}
+.m-fighter{background-image: url(Images/charclasses/M_fighter.png);}
+.f-fighter{background-image: url(Images/charclasses/F_fighter.png);}
+
+
+.char:hover {
+  filter: brightness(150%);
+}
+
+
+
+
+/*Main Quiz CSS Starts Here*/
 .main-quiz{
   display: block;
   position: absolute;
-  height: 400px;
+  height: 500px;
   width: 1000px;
   margin: auto;
   top: 150px;
@@ -61,6 +111,7 @@ button.welcome-text {
   right: 0px;
   background: linear-gradient(#7B7BD6, #000042 );
   border-radius: 10px;
+  border: 2px solid black;
 }
 
 .question {
@@ -82,7 +133,7 @@ button.welcome-text {
     padding-top: 3px;
   }
 
-.answers, .Answer-notify {
+.answers, .answer-notify {
     color: white;
     font-size: 20px;
     font-family: FinalFantasy;
@@ -91,7 +142,6 @@ button.welcome-text {
     border-radius: 10px;
     padding: 10px;
     position: absolute;
-    ;
     text-align: center;
     background-color: rgba(44, 18, 154, 20);
     height: 40px;
@@ -100,40 +150,40 @@ button.welcome-text {
 }
 
 .answer-A {
-    top: 75px;
-    left: 150px;
+    top: 164px;
+    left: 113px;
 }
 
 .answer-B {
-    top: 75px;
-    right: 150px;
+    top: 164px;
+    right: 113px;
 }
 
 .answer-C {
-    top: 190px;
-    left: 150px;
+    top: 279px;
+    left: 202px;
 }
 
 .answer-D {
-    top: 190px;
-    right: 150px;
+    top: 279px;
+    right: 202px;
 }
 
 .answer-notify {
-  top: 300px;
-  right: 0px;
-  left: 0px;
-  margin-left: auto;
-  margin-right: auto;
-  width: 300px;
-  background-color: rgba(64, 223, 224, 0.41);
+    top: 59px;
+    right: 0px;
+    left: 0px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 300px;
+    background-color: rgba(64, 223, 224, 0.61)
 }
 
 button.answer-submit {
   outline: none;
   border: 2px white solid;
   border-radius: 10px;
-  background-color: rgba(0, 255, 92, 0.35);
+  background-color: rgba(0, 255, 92, 0.65);
   height: 100px;
   width: 125px;
   color: white;
@@ -145,7 +195,7 @@ button.answer-submit {
   margin-right: auto;
   left: 0px;
   right: 0px;
-  top: 100px;
+  top: 374px;
 }
 
 p{
@@ -157,6 +207,10 @@ p{
 }
 
 
-.welcome-text:hover, .answers:hover, .answer-submit:hover {
+.answers:hover, .answer-submit:hover {
   filter: brightness(150%);
+}
+
+body:hover, .welcome-text:hover{
+  cursor: url('cursor.png'), auto;
 }
