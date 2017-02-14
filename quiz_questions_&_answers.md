@@ -10,10 +10,10 @@ D. 4
 
 2. What was the Japanese Version of Final Fantasy IV originally called in the US?
 
-A. FF 4
-B. FF 2
-C. FF 5
-D. FF 3
+A. Final Fantasy 4
+B. Final Fantasy 2
+C. Final Fantasy 5
+D. Final Fantasy 3
 
 3. Who is the "spoony bard" in Final Fantasy IV?
 
@@ -40,7 +40,7 @@ D. Terra
 
 A. To rule the world
 B. To destroy the world
-C. Find the ancient magic of the Goddesses
+C. Revive the ancient Goddesses by finding the source of magic
 D. All of the above
 
 7. In Final Fantasy VII, what weapon does Cloud carry?
@@ -59,12 +59,12 @@ D. All of the above
 
 9. The animal made most famous by the Final Fantasy Series is:
 
-A. A tigerdog
-B. A lizardsnake
-C. A lioncat
-D. A chocobo
+A. A Tigerdog
+B. A Porcupinefish
+C. A Lioncat
+D. A Chocobo
 
-10. The best Final Fantasy was:
+10. The best Final Fantasy game in the series is:
 
 A. Final Fantasy IV
 B. Final Fantasy VI

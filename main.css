@@ -29,17 +29,16 @@ div.welcome-screen {
   top: 120px;
   left: 0px;
   right: 0px;
-  background: linear-gradient(rgba(73,119,138,123), rgba(70,201,255,12));
+  background: linear-gradient(#7B7BD6, #000042 );
   border-radius: 10px;
 }
 
-button.welcome-text {
+button.welcome-text, div.quiz-window {
 color: white;
 font-family: FinalFantasy;
 font-size: 22px;
 font-weight: bold;
 text-align: center;
-line-height: 194px;
 width: 500px;
 height: 200px;
 outline: none;
