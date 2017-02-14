@@ -16,7 +16,7 @@ parse the selected box, and check whether the content of the answer div selected
 */
 
 var quizState = {
-correctAnswer: ["4", "Final Fantasy 2", "Edward", "Cecil", "Mog", "All of the above", "A Giant Sword", "Love", "A chocobo", "Final Fantasy VI"],
+correctAnswers: ["4", "Final Fantasy 2", "Edward", "Cecil", "Mog", "All of the above", "A Giant Sword", "Love", "A chocobo", "Final Fantasy VI"],
 
 wrongAnswer1: ["1", "Final Fantasy 4", "Cecil", "Rosa", "Locke", "To rule the world", "A Scythe", "Betrayal", "A Tigerdog", "Final Fantasy IV"],
 
@@ -25,5 +25,51 @@ wrongAnswer2: ["2", "Final Fantasy 5", "Kain", "Rydia", "Sabin", "To destroy the
 wrongAnswer3: ["3", "Final Fantasy 3", "Edge", "Golbez", "Terra", "Revive the ancient Goddesses by finding the source of magic", "A Gun", "All of the above", "A Lioncat", "Final Fantasy VIII"],
 
 
-questions: ["1. How many adventurers were you able to play as in Final Fantasy I (Nes)?", "2. What was the Japanese Version of Final Fantasy IV originally called in the US?",'3. Who is the "spoony bard" in Final Fantasy IV?',"4. Which character undergoes a redemption and becomes a paladin in Final Fantasy IV?", "5. In Final Fantasy VI, which character is featured on the box artwork for the US version?", "6. What is the villain Kefka's goal in Final Fantasy VI?","7. In Final Fantasy VII, what weapon does Cloud carry?", "8. The major theme of Final Fantasy VIII is:", "9. The animal made most famous by the Final Fantasy Series is:","10. The best Final Fantasy game in the series is:"]
+questions: ["1. How many adventurers were you able to play as in Final Fantasy I (Nes)?", "2. What was the Japanese Version of Final Fantasy IV originally called in the US?", '3. Who is the "spoony bard" in Final Fantasy IV?', "4. Which character undergoes a redemption and becomes a paladin in Final Fantasy IV?", "5. In Final Fantasy VI, which character is featured on the box artwork for the US version?", "6. What is the villain Kefka's goal in Final Fantasy VI?", "7. In Final Fantasy VII, what weapon does Cloud carry?", "8. The major theme of Final Fantasy VIII is:", "9. The animal made most famous by the Final Fantasy Series is:", "10. The best Final Fantasy game in the series is:"],
+
+answerChoices: ['A', 'B', 'C', 'D'],
+
+questionCounter: 0,
+questionIndex: -1,
+questionIsCorrect: 0,
+questionIsWrong: 0,
+quizFinished: 0
 }
+
+
+// State Modification functions
+function quizHtmlCreateAndAppend(ansA, ansB, ansC, ansD) {
+  var ansNotify = "You have " + quizState.questionIsCorrect + " questions correct out of 10.";
+  $('.welcome-screen').remove();
+  var quizHtml = (`
+    <div class= "main-quiz">
+    <div class= "Question">${quizState.correctAnswers[quizState.questionIndex]}</div>
+    <div class= "answer-A answers"><p></p></div>
+    <div class= "answer-B answers"><p></p></div>
+    <div class= "answer-C answers"><p></p></div>
+    <div class= "answer-D answers"><p></p></div>
+    <div class= "answer-notify"><p></p></div>
+    <button class="answer-submit">Submit Answer</button>
+    </div>
+    `)
+    $('.welcome-screen').append(quizHtml);
+}
+
+function randomizeAnswers() {
+
+}
+
+function answerIsCorrect() {
+  quizState.questionIsCorrect +=1;
+  quizState.questionIndex +=1;
+  quizState.questionCounter +=1;
+}
+
+function answerIsWrong() {
+  quizState.questionIsWrong +=1;
+  quizState.questionIndex +=1;
+  quizState.questionCounter +=1;
+}
+
+
+// Event Listeners

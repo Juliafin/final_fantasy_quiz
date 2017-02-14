@@ -1,10 +1,11 @@
 @font-face {
-  font-family: FinalFantasy; src: url('fonts/final_fantasy_36_font.ttf');
+    font-family: FinalFantasy;
+    src: url('fonts/final_fantasy_36_font.ttf');
 }
 
 .header {
     display: block;
-    height: 75px;
+    height: 115px;
     top: 0px;
     left: 0px;
     width: 100%;
@@ -19,33 +20,143 @@
     border-radius: 5px;
 }
 
-
 div.welcome-screen {
+    display: block;
+    position: absolute;
+    height: 300px;
+    width: 800px;
+    margin: auto;
+    top: 144px;
+    left: 0px;
+    right: 0px;
+    background: linear-gradient(#7B7BD6, #000042);
+    border-radius: 10px;
+}
+
+button.welcome-text {
+    color: white;
+    font-family: FinalFantasy;
+    font-size: 22px;
+    font-weight: bold;
+    text-align: center;
+    width: 800px;
+    height: 300px;
+    outline: none;
+    border-bottom: 3px rgb(37, 112, 149) solid;
+    border-right: 3px rgb(78, 152, 237) solid;
+    border-left: 3px rgb(78, 152, 237) solid;
+    background-color: inherit;
+    border-radius: 12px;
+    white-space: normal;
+}
+
+.main-quiz{
   display: block;
   position: absolute;
-  height: 200px;
-  width: 500px;
+  height: 400px;
+  width: 1000px;
   margin: auto;
-  top: 120px;
+  top: 150px;
   left: 0px;
   right: 0px;
   background: linear-gradient(#7B7BD6, #000042 );
   border-radius: 10px;
 }
 
-button.welcome-text, div.quiz-window {
-color: white;
-font-family: FinalFantasy;
-font-size: 22px;
-font-weight: bold;
-text-align: center;
-width: 500px;
-height: 200px;
-outline: none;
-border-bottom: 3px rgb(37, 112, 149) solid;
-border-right: 3px rgb(78, 152, 237) solid;
-border-left: 3px rgb(78, 152, 237) solid;
-background-color: inherit;
-border-radius: 12px;
-white-space: normal;
+.question {
+    color: white;
+    text-align: center;
+    font-family: FinalFantasy;
+    font-size: 28px;
+    margin-top: 10px;
+    background: #043343;
+    display: inline-block;
+    position: absolute;
+    border: 2px white solid;
+    border-radius: 10px;
+    width: 388px;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 3px;
+  }
+
+.answers, .Answer-notify {
+    color: white;
+    font-size: 20px;
+    font-family: FinalFantasy;
+    border: 3.5px white solid;
+    display: inline-block;
+    border-radius: 10px;
+    padding: 10px;
+    position: absolute;
+    ;
+    text-align: center;
+    background-color: rgba(44, 18, 154, 20);
+    height: 40px;
+    width: 200px;
+    padding-bottom: 24px;
+}
+
+.answer-A {
+    top: 75px;
+    left: 150px;
+}
+
+.answer-B {
+    top: 75px;
+    right: 150px;
+}
+
+.answer-C {
+    top: 190px;
+    left: 150px;
+}
+
+.answer-D {
+    top: 190px;
+    right: 150px;
+}
+
+.answer-notify {
+  top: 300px;
+  right: 0px;
+  left: 0px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 300px;
+  background-color: rgba(64, 223, 224, 0.41);
+}
+
+button.answer-submit {
+  outline: none;
+  border: 2px white solid;
+  border-radius: 10px;
+  background-color: rgba(0, 255, 92, 0.35);
+  height: 100px;
+  width: 125px;
+  color: white;
+  font-family: FinalFantasy;
+  font-size: 25px;
+  display: inline-block;
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0px;
+  right: 0px;
+  top: 100px;
+}
+
+p{
+  margin-top: -1px;
+}
+
+.question p {
+    vertical-align: middle;
+}
+
+
+.answers:hover, .answer-submit:hover {
+  filter: brightness(150%);
 }
