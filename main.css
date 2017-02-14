@@ -103,10 +103,10 @@ button.welcome-text {
 .main-quiz{
   display: block;
   position: absolute;
-  height: 500px;
+  height: 360px;
   width: 1000px;
   margin: auto;
-  top: 150px;
+  top: 130px;
   left: 0px;
   right: 0px;
   background: linear-gradient(#7B7BD6, #000042 );
@@ -150,23 +150,23 @@ button.welcome-text {
 }
 
 .answer-A {
-    top: 164px;
-    left: 113px;
+    top: 103px;
+    left: 86px;
 }
 
 .answer-B {
-    top: 164px;
-    right: 113px;
+    top: 103px;
+    right: 86px;
 }
 
 .answer-C {
-    top: 279px;
-    left: 202px;
+    top: 210px;
+    left: 150px;
 }
 
 .answer-D {
-    top: 279px;
-    right: 202px;
+    top: 210px;
+    right: 150px;
 }
 
 .answer-notify {
@@ -176,7 +176,9 @@ button.welcome-text {
     margin-left: auto;
     margin-right: auto;
     width: 300px;
-    background-color: rgba(64, 223, 224, 0.61)
+    height: 6px;
+    background-color: rgba(64, 223, 224, 0.61);
+
 }
 
 button.answer-submit {
@@ -195,7 +197,7 @@ button.answer-submit {
   margin-right: auto;
   left: 0px;
   right: 0px;
-  top: 374px;
+  top: 239px;
 }
 
 p{
