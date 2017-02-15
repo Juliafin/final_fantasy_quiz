@@ -10,6 +10,7 @@
   <body>
     <header class="header"></header>
     <div class="welcome-screen">
+
       <button class="welcome-text">
         <div class="char m-dragoon"></div>
         <div class="char f-dragoon"></div>
@@ -22,15 +23,21 @@
         <div class="char m-ninja"></div>
         <div class="char f-ninja"></div>
         <div class="char m-fighter"></div>
-        <div class="char f-figther"></div>
-
+        <div class="char f-fighter"></div>
 
         <p class="p1">Welcome to the classic Final Fantasy Series Quiz!</p>
         <p class="p2">Please select your Avatar or press space to continue</p>
-
     </button>
 
     </div>
+
+    <audio id="menu_move" preload="auto">
+       <source src="audio/cursor_move.mp3" type="audio/mpeg"></source>
+    </audio>
+
+    <audio id="menu_click_answer" preload="auto">
+       <source src="audio/cursor_answer_click.mp3" type="audio/mpeg"></source>
+    </audio>
     <!-- Scripts -->
     <script src="normalize.css" charset="utf-8"></script>
     <script src="https://code.jquery.com/jquery-3.1.0.min.js" charset="utf-8"></script>

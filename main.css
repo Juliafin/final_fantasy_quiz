@@ -213,6 +213,6 @@ p{
   filter: brightness(150%);
 }
 
-body:hover, .welcome-text:hover{
-  cursor: url('cursor.png'), auto;
+body:hover, .welcome-text:hover, .answer-submit:hover {
+  cursor: url('Images/cursor.png'), auto;
 }

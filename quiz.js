@@ -79,5 +79,21 @@ function answerIsWrong() {
   quizState.questionCounter +=1;
 }
 
-
 // Event Listeners
+
+// Audio listeners
+
+// hover
+var menuMove = $('#menu_move')[0];
+$('.answers, .answer-submit, .char').mouseenter(function() {
+  menuMove.play();
+})
+
+
+// click answer
+
+var clickAnswer = $('#menu_click_answer')[0];
+$('.answers, .char').click(function(event) {
+  // event.stopPropagation();
+  clickAnswer.play();
+})
