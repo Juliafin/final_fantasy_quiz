@@ -18,61 +18,126 @@ Stretch goals:
 LV for questions
 Hp/MP for answered questions
 Avatar and Name choice
-Custom Cursor - hand
-sound effects - chirp
+Custom Cursor - hand V
+sound effects - chirp V
 
 */
 
 var quizState = {
-correctAnswers: ["4", "Final Fantasy 2", "Edward", "Cecil", "Mog", "All of the above", "A Giant Sword", "Love", "A chocobo", "Final Fantasy VI"],
 
-wrongAnswer1: ["1", "Final Fantasy 4", "Cecil", "Rosa", "Locke", "To rule the world", "A Scythe", "Betrayal", "A Tigerdog", "Final Fantasy IV"],
+  questionsAndAnswers: [
 
-wrongAnswer2: ["2", "Final Fantasy 5", "Kain", "Rydia", "Sabin", "To destroy the world", "A Rapier", "Revenge", "A Porcupinefish", "Final Fantasy VII"],
+    {
+      question: "How many adventurers were you able to play as in Final Fantasy I (Nes)?",
+      answers: ["1", "2", "3", "4"],
+      correctAnswer: "4"
+    },
 
-wrongAnswer3: ["3", "Final Fantasy 3", "Edge", "Golbez", "Terra", "Revive the ancient Goddesses by finding the source of magic", "A Gun", "All of the above", "A Lioncat", "Final Fantasy VIII"],
+    {
+      question: "What was the Japanese Version of Final Fantasy IV originally called in the US?",
+      answers: ["Final Fantasy 4", "Final Fantasy 2", "Final Fantasy 5", "Final Fantasy 3"],
+      correctAnswer: "Final Fantasy 2"
+    },
 
+    {
+      question: 'Who is the "spoony bard" in Final Fantasy IV?',
+      answers: ["Cecil", "Edward", "Kain", "Edge"],
+      correctAnswer: "Edward"
+    },
 
-questions: ["1. How many adventurers were you able to play as in Final Fantasy I (Nes)?", "2. What was the Japanese Version of Final Fantasy IV originally called in the US?", '3. Who is the "spoony bard" in Final Fantasy IV?', "4. Which character undergoes a redemption and becomes a paladin in Final Fantasy IV?", "5. In Final Fantasy VI, which character is featured on the box artwork for the US version?", "6. What is the villain Kefka's goal in Final Fantasy VI?", "7. In Final Fantasy VII, what weapon does Cloud carry?", "8. The major theme of Final Fantasy VIII is:", "9. The animal made most famous by the Final Fantasy Series is:", "10. The best Final Fantasy game in the series is:"],
+    {
+      question: "Which character undergoes a redemption and becomes a paladin in Final Fantasy IV?",
+      answers: ["Rosa", "Rydia", "Cecil", "Golbez"],
+      correctAnswer: "Cecil"
+    },
 
-answerChoices: ['A', 'B', 'C', 'D'],
+    {
+      question: "In Final Fantasy VI, which character is featured on the box artwork for the US version?",
+      answers: ["Mog", "Locke", "Sabin", "Terra"],
+      correctAnswer: "Mog"
+    },
 
-questionCounter: 0,
-questionIndex: -1,
-questionIsCorrect: 0,
-questionIsWrong: 0,
-quizFinished: 0
+    {
+      question: "What is the villain Kefka's goal in Final Fantasy VI?",
+      answers: ["To rule the world", "To destroy the world", "Revive the ancient Goddesses by finding the source of magic", "All of the above"],
+      correctAnswer: "All of the above"
+    },
+
+    {
+      question: "In Final Fantasy VII, what weapon does Cloud carry?",
+      answers: ["A Scythe", "A Rapier", "A Giant Sword", "A Gun"],
+      correctAnswer: "A Giant Sword"
+    },
+
+    {
+      question: "The major theme of Final Fantasy VIII is:",
+      answers: ["Love", "Betrayal", "Revenge", "All of the above"],
+      correctAnswer: "Love"
+    },
+
+    {
+      question: "The animal made most famous by the Final Fantasy Series is:",
+      answers: ["A Tigerdog", "A Porcupinefish", "A Lioncat", "A Chocobo"],
+      correctAnswer: "A Chocobo"
+    },
+
+    {
+      question: "The best Final Fantasy game in the series is:",
+      answers: ["Final Fantasy IV", "Final Fantasy VI", "Final Fantasy VII", "Final Fantasy VIII"],
+      correctAnswer: "All answers are correct!"
+    }
+  ],
+
+  answerChoices: ['A. ', 'B. ', 'C. ', 'D. '],
+
+  questionCounter: 0,
+  questionIndex: -1,
+  questionIsCorrect: 0,
+  questionIsWrong: 0,
+  quizFinished: 0
 }
-
 
 // State Modification functions
-function quizHtmlCreateAndAppend(ansA, ansB, ansC, ansD) {
+function quizHtmlCreateAndAppend(characterClass) {
+  quizState.questionIndex += 1;
+  quizState.questionCounter += 1
+
+  var answerLetterArr = quizState.answerChoices;
+  var index = quizState.questionCounter;
+  var answers = quizState.questionsAndAnswers[index].answers;
+  var questionNoNumber = quizState.questionsAndAnswers[index].question;
+  var currentQuestionNum = quizState.questionCounter;
+  var currentQuestion = currentQuestionNum + ". " + questionNoNumber
   var ansNotify = "You have " + quizState.questionIsCorrect + " questions correct out of 10.";
-  $('.welcome-screen').remove();
+  var ansA = answerLetterArr[0] + answers[0];
+  var ansB = answerLetterArr[1] + answers[1];
+  var ansC = answerLetterArr[2] + answers[2];
+  var ansD = answerLetterArr[3] + answers[3];
   var quizHtml = (`
     <div class= "main-quiz">
-    <div class= "Question">${quizState.correctAnswers[quizState.questionIndex]}</div>
-    <div class= "answer-A answers"><p></p></div>
-    <div class= "answer-B answers"><p></p></div>
-    <div class= "answer-C answers"><p></p></div>
-    <div class= "answer-D answers"><p></p></div>
-    <div class= "answer-notify"><p></p></div>
+    <div class= "Question">${currentQuestion}</div>
+    <div class= "answer-A answers"><p>${ansA}</p></div>
+    <div class= "answer-B answers"><p>${ansB}</p></div>
+    <div class= "answer-C answers"><p>${ansC}</p></div>
+    <div class= "answer-D answers"><p>${ansD}</p></div>
+    <div class= "avatar"></div>
+    <div class= "answer-notify"><p>${ansNotify}</p></div>
     <button class="answer-submit">Submit Answer</button>
     </div>
-    `)
+    `);
+    $('.welcome-screen').remove();
     $('body').append(quizHtml);
+    $('.avatar').addClass(characterClass);
 }
 
-function randomizeAnswers() {
-
-}
-
+// TODO finish this function
 function answerIsCorrect() {
   quizState.questionIsCorrect +=1;
   quizState.questionIndex +=1;
   quizState.questionCounter +=1;
 }
 
+// TODO finish this function
 function answerIsWrong() {
   quizState.questionIsWrong +=1;
   quizState.questionIndex +=1;
@@ -81,20 +146,29 @@ function answerIsWrong() {
 
 // Event Listeners
 
-// Audio listeners
+// Audio listener
 
 // hover
 var menuMove = $('#menu_move')[0];
-$('.answers, .answer-submit, .char').mouseenter(function() {
+$('.answers, .answer-submit, .char, .avatar').mouseenter(function() {
   menuMove.pause();
   menuMove.play();
 })
 
 
-// click answer
+// mouse click
 
 var clickAnswer = $('#menu_click_answer')[0];
 $('.answers, .char').click(function(event) {
   clickAnswer.pause();
   clickAnswer.play();
-})
+});
+
+
+
+// Welcome listener
+
+$('button.welcome-text, .char').click(function(event){
+  var clickedCharClass= $(this).attr('class').replace('char','');
+  quizHtmlCreateAndAppend(clickedCharClass);
+});

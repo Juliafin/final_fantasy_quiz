@@ -1,4 +1,3 @@
-
 @font-face {
     font-family: FinalFantasy;
     src: url('fonts/final_fantasy_36_font.ttf');
@@ -51,67 +50,101 @@ button.welcome-text {
     white-space: normal;
 }
 
-
 .p1 {
-  position: absolute;
-  top: 44px;
-  left: 0px;
-  right: 0px;
+    position: absolute;
+    top: 44px;
+    left: 0px;
+    right: 0px;
 }
 
 .p2 {
-  position: absolute;
-  top: 90px;
-  left: 0px;
-  right: 0px;
+    position: absolute;
+    top: 90px;
+    left: 0px;
+    right: 0px;
 }
+
 
 /*Characters*/
+
 .char {
-  width: 75px;
-  height: 75px;
-  background-size: contain;
-  background-repeat: no-repeat;
-  position: relative;
-  display: inline-block;
-  background-position-x: 12px;
-  top: 72px;
+    width: 75px;
+    height: 75px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: relative;
+    display: inline-block;
+    background-position-x: 12px;
+    top: 72px;
 }
 
-.m-dragoon{background-image: url(Images/charclasses/M_dragoon.png);}
-.f-dragoon{background-image: url(Images/charclasses/F_dragoon.png);}
-.m-whitemage{background-image: url(Images/charclasses/M_whitemage.png);}
-.f-whitemage{background-image: url(Images/charclasses/F_whitemage.png);}
-.m-redmage{background-image: url(Images/charclasses/M_redmage.png);}
-.f-redmage{background-image: url(Images/charclasses/F_redmage.png);}
-.m-blackmage{background-image: url(Images/charclasses/M_blackmage.png);}
-.f-blackmage{background-image: url(Images/charclasses/F_blackmage.png);}
-.m-ninja{background-image: url(Images/charclasses/M_ninja.png);}
-.f-ninja{background-image: url(Images/charclasses/F_ninja.png);}
-.m-fighter{background-image: url(Images/charclasses/M_fighter.png);}
-.f-fighter{background-image: url(Images/charclasses/F_fighter.png);}
+.m-dragoon {
+    background-image: url(Images/charclasses/M_dragoon.png);
+}
 
+.f-dragoon {
+    background-image: url(Images/charclasses/F_dragoon.png);
+}
+
+.m-whitemage {
+    background-image: url(Images/charclasses/M_whitemage.png);
+}
+
+.f-whitemage {
+    background-image: url(Images/charclasses/F_whitemage.png);
+}
+
+.m-redmage {
+    background-image: url(Images/charclasses/M_redmage.png);
+}
+
+.f-redmage {
+    background-image: url(Images/charclasses/F_redmage.png);
+}
+
+.m-blackmage {
+    background-image: url(Images/charclasses/M_blackmage.png);
+}
+
+.f-blackmage {
+    background-image: url(Images/charclasses/F_blackmage.png);
+}
+
+.m-ninja {
+    background-image: url(Images/charclasses/M_ninja.png);
+}
+
+.f-ninja {
+    background-image: url(Images/charclasses/F_ninja.png);
+}
+
+.m-fighter {
+    background-image: url(Images/charclasses/M_fighter.png);
+}
+
+.f-fighter {
+    background-image: url(Images/charclasses/F_fighter.png);
+}
 
 .char:hover {
-  filter: brightness(150%);
+    filter: brightness(150%);
 }
-
-
 
 
 /*Main Quiz CSS Starts Here*/
-.main-quiz{
-  display: block;
-  position: absolute;
-  height: 360px;
-  width: 1000px;
-  margin: auto;
-  top: 130px;
-  left: 0px;
-  right: 0px;
-  background: linear-gradient(#7B7BD6, #000042 );
-  border-radius: 10px;
-  border: 2px solid black;
+
+.main-quiz {
+    display: block;
+    position: absolute;
+    height: 360px;
+    width: 1000px;
+    margin: auto;
+    top: 130px;
+    left: 0px;
+    right: 0px;
+    background: linear-gradient(#7B7BD6, #000042);
+    border-radius: 10px;
+    border: 2px solid black;
 }
 
 .question {
@@ -131,7 +164,7 @@ button.welcome-text {
     margin-left: auto;
     margin-right: auto;
     padding-top: 3px;
-  }
+}
 
 .answers, .answer-notify {
     color: white;
@@ -169,6 +202,21 @@ button.welcome-text {
     right: 150px;
 }
 
+.avatar {
+    width: 75px;
+    height: 75px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    display: inline-block;
+    background-position-x: 3px;
+    top: 129px;
+    left: 0px;
+    right: 0px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .answer-notify {
     top: 59px;
     right: 0px;
@@ -178,41 +226,39 @@ button.welcome-text {
     width: 300px;
     height: 6px;
     background-color: rgba(64, 223, 224, 0.61);
-
 }
 
 button.answer-submit {
-  outline: none;
-  border: 2px white solid;
-  border-radius: 10px;
-  background-color: rgba(0, 255, 92, 0.65);
-  height: 100px;
-  width: 125px;
-  color: white;
-  font-family: FinalFantasy;
-  font-size: 25px;
-  display: inline-block;
-  position: absolute;
-  margin-left: auto;
-  margin-right: auto;
-  left: 0px;
-  right: 0px;
-  top: 239px;
+    outline: none;
+    border: 2px white solid;
+    border-radius: 10px;
+    background-color: rgba(0, 255, 92, 0.65);
+    height: 100px;
+    width: 125px;
+    color: white;
+    font-family: FinalFantasy;
+    font-size: 25px;
+    display: inline-block;
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0px;
+    right: 0px;
+    top: 239px;
 }
 
-p{
-  margin-top: -1px;
+p {
+    margin-top: -1px;
 }
 
 .question p {
     vertical-align: middle;
 }
 
-
-.answers:hover, .answer-submit:hover {
-  filter: brightness(150%);
+.answers:hover, .answer-submit:hover, .avatar:hover {
+    filter: brightness(150%);
 }
 
 body:hover, .welcome-text:hover, .answer-submit:hover {
-  cursor: url('Images/cursor.png'), auto;
+    cursor: url('Images/cursor.png'), auto;
 }
