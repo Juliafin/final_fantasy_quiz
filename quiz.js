@@ -60,7 +60,7 @@ function quizHtmlCreateAndAppend(ansA, ansB, ansC, ansD) {
     <button class="answer-submit">Submit Answer</button>
     </div>
     `)
-    $('.welcome-screen').append(quizHtml);
+    $('body').append(quizHtml);
 }
 
 function randomizeAnswers() {
@@ -86,6 +86,7 @@ function answerIsWrong() {
 // hover
 var menuMove = $('#menu_move')[0];
 $('.answers, .answer-submit, .char').mouseenter(function() {
+  menuMove.pause();
   menuMove.play();
 })
 
@@ -94,6 +95,6 @@ $('.answers, .answer-submit, .char').mouseenter(function() {
 
 var clickAnswer = $('#menu_click_answer')[0];
 $('.answers, .char').click(function(event) {
-  // event.stopPropagation();
+  clickAnswer.pause();
   clickAnswer.play();
 })
