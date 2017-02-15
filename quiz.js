@@ -1,10 +1,10 @@
 // TODO
 /*
-1. Attach an event listener on the main submit buttons
-2. When the welcome scrren submit button is pressed, increment a counter for the question (also used as an index to push the answers) Create 4 divs for the answer boxes, one for the question, and one for the question counter, and a button for question submits. Also delete the button on the press.
-3. Make a state object with 4 Separate arrays of answers, and also 4 separate arrays for answer letters (one of them being an answer key)
-4. Use the counter to push indexes of those 5 arrays and concatenate them with a letter at the beginning.
-5. use regex to parse the letter at the beginning, and push them into the appropriate div
+1. V Attach an event listener on the main submit buttons
+2. V When the welcome scrren submit button is pressed, increment a counter for the question (also used as an index to push the answers) Create 4 divs for the answer boxes, one for the question, and one for the question counter, and a button for question submits. Also delete the button on the press.
+V * Implemented alternate solution involving different data structures : 3. Make a state object with 4 Separate arrays of answers, and also 4 separate arrays for answer letters (one of them being an answer key)
+4. V Use the counter to push indexes of those 5 arrays and concatenate them with a letter at the beginning.
+5. * This was optional * use regex to parse the letter at the beginning, and push them into the appropriate div
 6. When the submit is pressed, a click must be registered on one of the boxes (also turning that box green with an alpha gradient ).
 7. Make sure that only one box can be clicked at a time (by removing the "selected" class from the buttons that are not clicked.)
 8. Use the event.target to determine which element was clicked.
@@ -99,49 +99,71 @@ var quizState = {
 
 // State Modification functions
 function quizHtmlCreateAndAppend(characterClass) {
+  // Iterate index counters to access appropriate questions
+
   quizState.questionIndex += 1;
   quizState.questionCounter += 1
 
+  // Declare variables and create HTML
+
+  // Concat Answers
   var answerLetterArr = quizState.answerChoices;
   var index = quizState.questionCounter;
   var answers = quizState.questionsAndAnswers[index].answers;
+
+  // Concat Questions
   var questionNoNumber = quizState.questionsAndAnswers[index].question;
   var currentQuestionNum = quizState.questionCounter;
-  var currentQuestion = currentQuestionNum + ". " + questionNoNumber
+  var currentQuestion = "LV " + currentQuestionNum + ": " + questionNoNumber
+
+  // Concat Notify
+
+
   var ansNotify = "You have " + quizState.questionIsCorrect + " questions correct out of 10.";
+
+
   var ansA = answerLetterArr[0] + answers[0];
   var ansB = answerLetterArr[1] + answers[1];
   var ansC = answerLetterArr[2] + answers[2];
   var ansD = answerLetterArr[3] + answers[3];
   var quizHtml = (`
-    <div class= "main-quiz">
-    <div class= "Question">${currentQuestion}</div>
-    <div class= "answer-A answers"><p>${ansA}</p></div>
-    <div class= "answer-B answers"><p>${ansB}</p></div>
-    <div class= "answer-C answers"><p>${ansC}</p></div>
-    <div class= "answer-D answers"><p>${ansD}</p></div>
-    <div class= "avatar"></div>
+    <div>
+    <div class= "js-main-quiz main-quiz">
+    <div class= "question">${currentQuestion}</div>
+    <div class= "answer-A js-answers answers"><p>${ansA}</p></div>
+    <div class= "answer-B js-answers answers"><p>${ansB}</p></div>
+    <div class= "answer-C js-answers answers "><p>${ansC}</p></div>
+    <div class= "answer-D js-answers answers"><p>${ansD}</p></div>
+    <div class= "js-avatar avatar"></div>
     <div class= "answer-notify"><p>${ansNotify}</p></div>
-    <button class="answer-submit">Submit Answer</button>
+    <button class="js-answer-submit answer-submit">Submit Answer</button>
+    </div>
     </div>
     `);
-    $('.welcome-screen').remove();
-    $('body').append(quizHtml);
-    $('.avatar').addClass(characterClass);
+
+  // Remove existing html and append to DOM
+  $('.js-welcome-screen').remove();
+  $('body').append(quizHtml);
+  $('.js-avatar').addClass(characterClass);
+
+  // Re-establish audio listeners
+  mouseClicklisten();
+  mouseHoverlisten();
 }
 
 // TODO finish this function
+// add checks on if selected elements have a class
 function answerIsCorrect() {
-  quizState.questionIsCorrect +=1;
-  quizState.questionIndex +=1;
-  quizState.questionCounter +=1;
+  quizState.questionIsCorrect += 1;
+  quizState.questionIndex += 1;
+  quizState.questionCounter += 1;
 }
 
 // TODO finish this function
 function answerIsWrong() {
-  quizState.questionIsWrong +=1;
-  quizState.questionIndex +=1;
-  quizState.questionCounter +=1;
+  quizState.questionIsWrong += 1;
+  quizState.questionIndex += 1;
+  quizState.questionCounter += 1;
 }
 
 // Event Listeners
@@ -149,26 +171,38 @@ function answerIsWrong() {
 // Audio listener
 
 // hover
-var menuMove = $('#menu_move')[0];
-$('.answers, .answer-submit, .char, .avatar').mouseenter(function() {
-  menuMove.pause();
-  menuMove.play();
-})
-
+function mouseHoverlisten() {
+  var menuMove = $('#menu_move')[0];
+  $('.js-answers, .js-answer-submit, .char, .js-avatar').mouseenter(function() {
+    menuMove.pause();
+    menuMove.play();
+  });
+}
+mouseHoverlisten();
 
 // mouse click
-
-var clickAnswer = $('#menu_click_answer')[0];
-$('.answers, .char').click(function(event) {
-  clickAnswer.pause();
-  clickAnswer.play();
-});
+function mouseClicklisten() {
+  var clickAnswer = $('#menu_click_answer')[0];
+  $('div .js-answers, .char').click(function(event) {
+    clickAnswer.pause();
+    clickAnswer.play();
+  });
+}
+mouseClicklisten();
 
 
 
 // Welcome listener
 
-$('button.welcome-text, .char').click(function(event){
-  var clickedCharClass= $(this).attr('class').replace('char','');
+$('button.js-welcome-text, .char').click(function(event) {
+  var clickedCharClass = $(this).attr('class').replace('char', '');
   quizHtmlCreateAndAppend(clickedCharClass);
 });
+
+
+// TODO finish Submit listener
+function quizSubmitListen() {
+  $('.js-main-quiz .js-answer-submit').click(function(event) {
+
+  });
+}

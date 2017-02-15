@@ -158,7 +158,7 @@ button.welcome-text {
     position: absolute;
     border: 2px white solid;
     border-radius: 10px;
-    width: 388px;
+    width: 458px;
     left: 0;
     right: 0;
     margin-left: auto;
@@ -215,16 +215,18 @@ button.welcome-text {
     right: 0px;
     margin-left: auto;
     margin-right: auto;
+
 }
 
 .answer-notify {
-    top: 59px;
+    top: 77px;
     right: 0px;
     left: 0px;
     margin-left: auto;
     margin-right: auto;
     width: 300px;
-    height: 6px;
+    height: 18px;
+    padding: 0;
     background-color: rgba(64, 223, 224, 0.61);
 }
 
