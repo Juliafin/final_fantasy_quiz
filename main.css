@@ -238,7 +238,7 @@ button.welcome-text {
     padding: 0;
     background-color: rgba(64, 223, 224, 0.61);
 }
-span questions-correct {
+ span.questions-correct {
     text-decoration: underline;
     color: #3aff3a;
 }

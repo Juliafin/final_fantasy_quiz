@@ -185,7 +185,7 @@ function quizHtmlCreateAndAppend() {
   // Concat Questions
   var questionNoNumber = quizState.questionsAndAnswers[index].question;
   var currentQuestionNum = quizState.questionCounter;
-  var currentQuestion = "LV " + currentQuestionNum + ": " + questionNoNumber
+  var currentQuestion = currentQuestionNum + ": " + questionNoNumber
 
   // TODO
   // Concat Notify
