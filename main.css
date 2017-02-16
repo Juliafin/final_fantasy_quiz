@@ -182,6 +182,15 @@ button.welcome-text {
     padding-bottom: 24px;
 }
 
+/* CSS3 selectors */
+
+/* https://www.w3schools.com/cssref/sel_nth-of-type.asp
+.answer:nth-of-type(0) {}
+.answer:nth-of-type(1) {}
+.answer:nth-of-type(2) {}
+.answer:nth-of-type(3) {}
+  */
+
 .answer-A {
     top: 103px;
     left: 86px;
@@ -228,6 +237,29 @@ button.welcome-text {
     height: 18px;
     padding: 0;
     background-color: rgba(64, 223, 224, 0.61);
+}
+span questions-correct {
+    text-decoration: underline;
+    color: #3aff3a;
+}
+
+.level {
+    position: absolute;
+    display: inline-block;
+    border: 2px white solid;
+    top: 30px;
+    left: 102px;
+    border-radius: 10px;
+    height: 50px;
+    width: 98px;
+    background-color: rgb(83, 92, 129);
+    color: #feff7c;
+    text-align: center;
+    line-height: 50px;
+    font-family: FinalFantasy;
+    font-weight: bold;
+    font-size: 28px;
+    filter: brightness(100%);
 }
 
 button.answer-submit {

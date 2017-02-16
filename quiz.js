@@ -1,3 +1,65 @@
+// Develper Hat:
+//  - data structures
+//  - algorithms (methods)
+// Designer Hat:
+//  - user experience
+//  - design beauty
+// Business Hat:
+//  - functionality, design, etc.
+//  - monization
+//  - marketing
+
+/*
+1. data + algorithms (no ui) <-- defense
+2. very basic design (has ui) <-- offense
+3. better design
+   - JS(events, dom, html), html, css, images, sounds, etc.
+
+Offense - sells tickets
+Defense - wins games
+*/
+
+// <-- file: ui.js
+/*
+var quiz = require('./quiz.js'); // <-- has all quiz logic
+var container = $('#content');
+
+function renderQuestion(question) {
+  container.append('<div class= "question">'+question+'</div>');
+}
+
+function renderAnswer(answer) {
+  container.append('<div class= "answer-A answers"><p>'+answer+'</p></div>');
+}
+
+function removeContent() {
+  container.html('');
+}
+
+function renderState() {
+  var question = quiz.getCurrentState();
+
+  // code to draw the questions on the screen
+  removeContent();
+  renderQuestion(question.question);
+  question.answers.forEach(function(answer) {
+    renderAnswer(question.answer);
+  });
+
+  // event handlers here
+  $('button.submitAnswer').click(function() {
+    var answer = $('div.question.selected').data('answer');
+    quiz.answer(answer);
+    renderState();
+  });
+}
+
+function start() {
+  quiz.init([{question:'', answers:[], answer:-1}]);
+  renderState();
+}
+*/
+
 // TODO
 /*
 1. V Attach an event listener on the main submit buttons
@@ -15,7 +77,7 @@ parse the selected box, and check whether the content of the answer div selected
 12. On the last submit button press (add an if statement on the current index), remove the quiz divs, and create a new set of divs showing the user their result, and congratulating the user for making it through the quiz. Also, the last question is free no matter what, so match the result regardless (if statement on the last question)
 
 Stretch goals:
-LV for questions
+LV for questions V
 Hp/MP for answered questions
 Avatar and Name choice
 Custom Cursor - hand V
@@ -90,22 +152,31 @@ var quizState = {
 
   answerChoices: ['A. ', 'B. ', 'C. ', 'D. '],
 
+  //letters: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I'], //etc.
+
   questionCounter: 0,
   questionIndex: -1,
   questionIsCorrect: 0,
   questionIsWrong: 0,
-  quizFinished: 0
+  quizFinished: 0,
+  characterClass: ''
+
+  // Can the character state be here?
 }
 
 // State Modification functions
-function quizHtmlCreateAndAppend(characterClass) {
+// function renderQuestion()
+function quizHtmlCreateAndAppend() {
   // Iterate index counters to access appropriate questions
 
+  //var question = quizState
+  //  .questionsAndAnswers[quizState.currentQuestion];
+
   quizState.questionIndex += 1;
-  quizState.questionCounter += 1
+  quizState.questionCounter += 1;
 
   // Declare variables and create HTML
-
+  var level = quizState.questionCounter;
   // Concat Answers
   var answerLetterArr = quizState.answerChoices;
   var index = quizState.questionCounter;
@@ -116,10 +187,12 @@ function quizHtmlCreateAndAppend(characterClass) {
   var currentQuestionNum = quizState.questionCounter;
   var currentQuestion = "LV " + currentQuestionNum + ": " + questionNoNumber
 
+  // TODO
   // Concat Notify
 
+  // var currentHP =
 
-  var ansNotify = "You have " + quizState.questionIsCorrect + " questions correct out of 10.";
+  var ansNotify = "You have " + '<span class="questions-correct">' + quizState.questionIsCorrect + "</span>" + " questions correct out of 10.";
 
 
   var ansA = answerLetterArr[0] + answers[0];
@@ -134,6 +207,7 @@ function quizHtmlCreateAndAppend(characterClass) {
     <div class= "answer-B js-answers answers"><p>${ansB}</p></div>
     <div class= "answer-C js-answers answers "><p>${ansC}</p></div>
     <div class= "answer-D js-answers answers"><p>${ansD}</p></div>
+    <div class= "js-level level">Level ${level}</div>
     <div class= "js-avatar avatar"></div>
     <div class= "answer-notify"><p>${ansNotify}</p></div>
     <button class="js-answer-submit answer-submit">Submit Answer</button>
@@ -144,7 +218,7 @@ function quizHtmlCreateAndAppend(characterClass) {
   // Remove existing html and append to DOM
   $('.js-welcome-screen').remove();
   $('body').append(quizHtml);
-  $('.js-avatar').addClass(characterClass);
+  $('.js-avatar').addClass(quizState.characterClass);
 
   // Re-establish audio listeners
   mouseClicklisten();
@@ -168,7 +242,7 @@ function answerIsWrong() {
 
 // Event Listeners
 
-// Audio listener
+// Audio listeners
 
 // hover
 function mouseHoverlisten() {
@@ -193,10 +267,9 @@ mouseClicklisten();
 
 
 // Welcome listener
-
 $('button.js-welcome-text, .char').click(function(event) {
-  var clickedCharClass = $(this).attr('class').replace('char', '');
-  quizHtmlCreateAndAppend(clickedCharClass);
+  quizState.characterClass = $(this).attr('class').replace('char', '');
+  quizHtmlCreateAndAppend();
 });
 
 
