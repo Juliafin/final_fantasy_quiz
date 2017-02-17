@@ -209,7 +209,6 @@ function renderAndIterateQuestion() {
     <div class="js-current-hp">HP: ${currentHP}/10</div>
     <div class= "js-avatar avatar"></div>
     <div class= "answer-notify"><p>You have <span class="questions-correct"> ${quizState.questionIsCorrect} </span> questions correct out of 10.</p></div>
-
     <button class="js-answer-submit answer-submit">Submit Answer</button>
     </div>
     </div>
@@ -219,6 +218,7 @@ function renderAndIterateQuestion() {
   // Remove existing html and append to DOM
     $('.js-welcome-screen').remove();
     $('.js-welcome-screen2').remove();
+    $('.js-answers').removeClass('green-selected');
     $('body').append(quizHtml);
     $('.js-avatar').addClass(quizState.characterClass);
 
@@ -410,7 +410,7 @@ function quizSubmitListen() {
         // will activate the continue button to reset on the 11th click
         quizState.quizSubmitCounter++;
         testSelectedAnswer();
-        $('js-answers').removeClass('green-selected');
+
 
           if (quizState.quizSubmitCounter === 10) {
             $('.js-level-continue').text("Restart Quiz");
@@ -430,6 +430,7 @@ function continueButtonListen() {
   $('.js-level-continue').click(function(event){
     if (quizState.quizSubmitCounter < 10) {
     event.preventDefault;
+    $('main-quiz').remove();
     // Reset the submit button
       quizState.submitClicked = 0;
     renderAndIterateQuestion();
