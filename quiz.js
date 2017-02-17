@@ -91,7 +91,7 @@ var quizState = {
 
     {
       question: "How many adventurers were you able to play as in Final Fantasy I (Nes)?",
-      answers: ["1", "2", "3", "4"],
+      answers: ["One", "Two", "Three", "Four"],
       correctAnswer: "4"
     },
 
@@ -151,63 +151,71 @@ var quizState = {
   ],
 
   answerChoices: ['A. ', 'B. ', 'C. ', 'D. '],
-
+  answerClasses: ["('answer-A')", "('answer-B')", "('answer-C')", "('answer-D')"],
   //letters: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I'], //etc.
 
-  questionCounter: 0,
-  questionIndex: -1,
+  currentQuestion: 0,
   questionIsCorrect: 0,
   questionIsWrong: 0,
   quizFinished: 0,
   characterClass: ''
 
-  // Can the character state be here?
 }
+
+
+
+// Shortcut to access quiz content
+
 
 // State Modification functions
 // function renderQuestion()
 function quizHtmlCreateAndAppend() {
   // Iterate index counters to access appropriate questions
 
-  //var question = quizState
-  //  .questionsAndAnswers[quizState.currentQuestion];
+  quizState.currentQuestion += 1;
+// object with the questions, answers,
+var currentQuestionObj = quizState.questionsAndAnswers[quizState.currentQuestion-1];
 
-  quizState.questionIndex += 1;
-  quizState.questionCounter += 1;
+var currentQuestion = currentQuestionObj.question;
 
-  // Declare variables and create HTML
-  var level = quizState.questionCounter;
-  // Concat Answers
-  var answerLetterArr = quizState.answerChoices;
-  var index = quizState.questionCounter;
-  var answers = quizState.questionsAndAnswers[index].answers;
+var currentAnswers = currentQuestionObj.answers;
 
-  // Concat Questions
-  var questionNoNumber = quizState.questionsAndAnswers[index].question;
-  var currentQuestionNum = quizState.questionCounter;
-  var currentQuestion = currentQuestionNum + ": " + questionNoNumber
+var letters = quizState.answerChoices;
 
-  // TODO
-  // Concat Notify
+var ansA = letters[0] + currentAnswers[0];
+var ansB = letters[1] + currentAnswers[1];
+var ansC = letters[2] + currentAnswers[2];
+var ansD = letters[3] + currentAnswers[3];
+
+
+var currentLevel = quizState.currentQuestion;
+
+
+
+  // TODO HP
+
 
   // var currentHP =
 
   var ansNotify = "You have " + '<span class="questions-correct">' + quizState.questionIsCorrect + "</span>" + " questions correct out of 10.";
 
 
-  var ansA = answerLetterArr[0] + answers[0];
-  var ansB = answerLetterArr[1] + answers[1];
-  var ansC = answerLetterArr[2] + answers[2];
-  var ansD = answerLetterArr[3] + answers[3];
+
+  // quizState.currentAnswerA.push[answers[0]];
+  // quizState.currentAnswerB.push[answers[1]];
+  // quizState.currentAnswerC.push[answers[2]];
+  // quizState.currentAnswerD.push[answers[3]];
+
   var quizHtml = (`
     <div>
     <div class= "js-main-quiz main-quiz">
     <div class= "question">${currentQuestion}</div>
     <div class= "answer-A js-answers answers"><p>${ansA}</p></div>
     <div class= "answer-B js-answers answers"><p>${ansB}</p></div>
-    <div class= "answer-C js-answers answers "><p>${ansC}</p></div>
+    <div class= "answer-C js-answers answers"><p>${ansC}</p></div>
     <div class= "answer-D js-answers answers"><p>${ansD}</p></div>
-    <div class= "js-level level">Level ${level}</div>
+    <div class= "js-level level">Level ${currentLevel}</div>
+    <div class= "js-level-continue level-continue hidden">To level ${currentLevel + 1}</div>
     <div class= "js-avatar avatar"></div>
     <div class= "answer-notify"><p>${ansNotify}</p></div>
     <button class="js-answer-submit answer-submit">Submit Answer</button>
@@ -223,22 +231,36 @@ function quizHtmlCreateAndAppend() {
   // Re-establish audio listeners
   mouseClicklisten();
   mouseHoverlisten();
+  answerSelectListen();
+  quizSubmitListen();
 }
 
 // TODO finish this function
 // add checks on if selected elements have a class
 function answerIsCorrect() {
   quizState.questionIsCorrect += 1;
-  quizState.questionIndex += 1;
-  quizState.questionCounter += 1;
 }
 
 // TODO finish this function
 function answerIsWrong() {
   quizState.questionIsWrong += 1;
-  quizState.questionIndex += 1;
-  quizState.questionCounter += 1;
 }
+
+function testSelectedAnswer() {
+
+
+  var selectedAnswer = $("[class*='green-selected']").text().replace(/^[ABCD]\. /, "");
+  var rightAnswer = quizState.questionsAndAnswers[quizState.currentQuestion - 1].correctAnswer;
+      if (selectedAnswer === rightAnswer) {
+        answerIsCorrect();
+      } else {
+        answerIsWrong();
+      };
+      var answerArray = quizState.questionsAndAnswers[quizState.currentQuestion-1].answers;
+      answerArray
+}
+// $('.js-answers').not(selectedAnswer).addClass('red-selected');
+
 
 // Event Listeners
 
@@ -247,23 +269,30 @@ function answerIsWrong() {
 // hover
 function mouseHoverlisten() {
   var menuMove = $('#menu_move')[0];
-  $('.js-answers, .js-answer-submit, .char, .js-avatar').mouseenter(function() {
+  $('.js-answers, .js-answer-submit, .char, .js-avatar').mouseenter(function(event) {
+    event.preventDefault();
     menuMove.pause();
     menuMove.play();
   });
 }
-mouseHoverlisten();
+
+$(document).ready(function(){
+  mouseHoverlisten();
+});
 
 // mouse click
 function mouseClicklisten() {
   var clickAnswer = $('#menu_click_answer')[0];
-  $('div .js-answers, .char').click(function(event) {
+  $('div .js-answers, button.welcome-text .char').click(function(event) {
+    event.preventDefault();
     clickAnswer.pause();
     clickAnswer.play();
   });
 }
-mouseClicklisten();
 
+$(document).ready(function(){
+mouseClicklisten();
+});
 
 
 // Welcome listener
@@ -273,9 +302,38 @@ $('button.js-welcome-text, .char').click(function(event) {
 });
 
 
+
+// Answer select listener
+function answerSelectListen () {
+$('.js-answers').click(function(event){
+  var elementsNotSelected = $('.js-answers').not($(this));
+
+  if ($(this).hasClass('red-selected')) {
+  $(this).removeClass('red-selected');
+};
+
+if (elementsNotSelected.hasClass('green-selected')) {
+  elementsNotSelected.removeClass('green-selected')
+};
+
+$(this).addClass('green-selected');
+});
+}
+answerSelectListen()
+
 // TODO finish Submit listener
 function quizSubmitListen() {
-  $('.js-main-quiz .js-answer-submit').click(function(event) {
+   if ($('.js-answers').hasClass('green-selected').length === 0) {
+     return
+   };
+  $('.js-answer-submit').click(function(event) {
+    $('.level-continue').removeClass('hidden');
+    $('js-answers').removeClass('green-selected');
 
+//     // Test if the answers are correct or incorrect
+//
+//
+//
+// // $('.answers p').text().replace(/([A.]|[B.]|[C.]|[D.])/g, "") testing
   });
 }

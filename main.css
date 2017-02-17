@@ -1,3 +1,6 @@
+*{
+  box-sizing: border-box;
+}
 @font-face {
     font-family: FinalFantasy;
     src: url('fonts/final_fantasy_36_font.ttf');
@@ -177,7 +180,7 @@ button.welcome-text {
     position: absolute;
     text-align: center;
     background-color: rgba(44, 18, 154, 20);
-    height: 40px;
+    height: 58px;
     width: 200px;
     padding-bottom: 24px;
 }
@@ -234,7 +237,7 @@ button.welcome-text {
     margin-left: auto;
     margin-right: auto;
     width: 300px;
-    height: 18px;
+    height: 23px;
     padding: 0;
     background-color: rgba(64, 223, 224, 0.61);
 }
@@ -253,7 +256,7 @@ button.welcome-text {
     height: 50px;
     width: 98px;
     background-color: rgb(83, 92, 129);
-    color: #feff7c;
+    color: #fdff00;
     text-align: center;
     line-height: 50px;
     font-family: FinalFantasy;
@@ -289,7 +292,39 @@ p {
     vertical-align: middle;
 }
 
-.answers:hover, .answer-submit:hover, .avatar:hover {
+.green-selected {
+    background-color: #14ea14;
+}
+
+.red-selected {
+  background-color: #a42020;
+}
+
+.level-continue {
+position: absolute;
+display: inline-block;
+border: 2px white solid;
+top: 30px;
+right: 95px;
+border-radius: 10px;
+height: 50px;
+width: 141px;
+background-color: rgb(83, 92, 129);
+color: #fdff00;
+text-align: center;
+line-height: 50px;
+font-family: FinalFantasy;
+font-weight: bold;
+font-size: 28px;
+filter: brightness(100%);
+}
+
+.hidden {
+  display: none;
+}
+
+
+.answers:hover, .answer-submit:hover, .avatar:hover, .char:hover,  .level-continue:hover {
     filter: brightness(150%);
 }
 
