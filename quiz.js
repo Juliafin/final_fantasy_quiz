@@ -83,6 +83,7 @@ Avatar and Name choice V not name choice
 Custom Cursor - hand V
 sound effects - chirp V
 fix cursor offset
+sound effect for submit button
 */
 
 var quizState = {
@@ -92,7 +93,7 @@ var quizState = {
     {
       question: "How many adventurers were you able to play as in Final Fantasy I (Nes)?",
       answers: ["One", "Two", "Three", "Four"],
-      correctAnswer: "4"
+      correctAnswer: "Four"
     },
 
     {
@@ -191,9 +192,11 @@ function quizHtmlCreateAndAppend() {
   var currentLevel = quizState.currentQuestion;
   // current HP
   var currentHP = 10 - quizState.questionIsWrong;
+  // text for continue button
+  var toLevelText = "To level " + (currentLevel + 1)
 
   // notify for answers correct
-  var ansNotify = "You have " + '<span class="questions-correct">' + quizState.questionIsCorrect + "</span>" + " questions correct out of 10.";
+  // var ansNotify = "You have " + '<span class="questions-correct">' + quizState.questionIsCorrect + "</span>" + " questions correct out of 10.";
 
 
   var quizHtml = (`
@@ -205,14 +208,16 @@ function quizHtmlCreateAndAppend() {
     <div class= "answer-C js-answers answers"><p>${ansC}</p></div>
     <div class= "answer-D js-answers answers"><p>${ansD}</p></div>
     <div class= "js-level level">Level ${currentLevel}</div>
-    <div class= "js-level-continue level-continue hidden">To level ${currentLevel + 1}</div>
+    <div class= "js-level-continue level-continue hidden">${toLevelText}</div>
     <div class="js-current-hp">HP: ${currentHP}/10</div>
     <div class= "js-avatar avatar"></div>
-    <div class= "answer-notify"><p>${ansNotify}</p></div>
+    <div class= "answer-notify"><p>You have <span class="questions-correct"> ${quizState.questionIsCorrect} </span> questions correct out of 10.</p></div>
+
     <button class="js-answer-submit answer-submit">Submit Answer</button>
     </div>
     </div>
     `);
+
 
   // Remove existing html and append to DOM
   $('.js-welcome-screen').remove();
@@ -224,31 +229,32 @@ function quizHtmlCreateAndAppend() {
   mouseHoverlisten();
   answerSelectListen();
   quizSubmitListen();
+  continueButtonListen();
 
   // Reset the submit button
   quizState.submitClicked = 0;
-}
+}// end of html append function
 
-// TODO finish this function
-// add checks on if selected elements have a class
+
+// Answer Tests
 function answerIsCorrect() {
   quizState.questionIsCorrect += 1;
 }
 
-// TODO finish this function
 function answerIsWrong() {
   quizState.questionIsWrong += 1;
 }
 
 function testSelectedAnswer() {
-
+//
 
   var selectedAnswer = $("[class*='green-selected']").text().replace(/^.../, "");
-  var rightAnswer = quizState.questionsAndAnswers[quizState.currentQuestion - 1].correctAnswer;
+  var rightAnswer = quizState.questionsAndAnswers[quizState.currentQuestion-1].correctAnswer;
+
       if (selectedAnswer === rightAnswer) {
         answerIsCorrect();
 
-      } else {
+      } else if (selectedAnswer !== rightAnswer) {
         answerIsWrong();
 
       };
@@ -307,6 +313,7 @@ $('.js-answers').click(function(event) {
   var elementsNotSelected = $('.js-answers').not($(this));
   if (quizState.submitClicked === 1) {
     return
+
   } else if ($(this).hasClass('red-selected')) {
   $(this).removeClass('red-selected');
 };
@@ -331,11 +338,13 @@ function quizSubmitListen() {
         return
 
       } else if ( ($('.level-continue').hasClass('hidden')) ) {
+        $('js-level-continue').text("toLevelText");
         $('.level-continue').removeClass('hidden');
         quizState.quizSubmitCounter++;
         quizState.submitClicked = 1;
-        quizHtmlCreateAndAppend();
-        testSelectedAnswer();          $('js-answers').removeClass('green-selected');
+        testSelectedAnswer();
+        $('js-answers').removeClass('green-selected');
+
 
         // add answer testing functions here
 
@@ -343,4 +352,12 @@ function quizSubmitListen() {
         alert("Please click on the To Level button to continue");
       }
   });
+}
+
+
+function continueButtonListen() {
+  $('.js-level-continue').click(function(event){
+    event.preventDefault;
+    quizHtmlCreateAndAppend();
+  })
 }
