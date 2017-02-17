@@ -213,6 +213,7 @@ button.welcome-text2 {
     height: 70px;
     width: 200px;
     padding-bottom: 24px;
+    z-index: 1;
 }
 
 /* CSS3 selectors */
@@ -269,6 +270,7 @@ button.welcome-text2 {
   left: 0px;
   right: 0px;
   text-align: center;
+  z-index: 0;
 }
 
 .answer-notify {
