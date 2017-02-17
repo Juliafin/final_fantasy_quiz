@@ -78,11 +78,11 @@ parse the selected box, and check whether the content of the answer div selected
 
 Stretch goals:
 LV for questions V
-Hp/MP for answered questions
-Avatar and Name choice
+Hp/MP for answered questions V
+Avatar and Name choice V not name choice
 Custom Cursor - hand V
 sound effects - chirp V
-
+fix cursor offset
 */
 
 var quizState = {
@@ -158,7 +158,9 @@ var quizState = {
   questionIsCorrect: 0,
   questionIsWrong: 0,
   quizFinished: 0,
-  characterClass: ''
+  characterClass: '',
+  quizSubmitCounter: 0,
+  submitClicked: 0,
 
 }
 
@@ -171,40 +173,28 @@ var quizState = {
 // function renderQuestion()
 function quizHtmlCreateAndAppend() {
   // Iterate index counters to access appropriate questions
-
   quizState.currentQuestion += 1;
-// object with the questions, answers,
-var currentQuestionObj = quizState.questionsAndAnswers[quizState.currentQuestion-1];
 
-var currentQuestion = currentQuestionObj.question;
+  // object with the questions, answers,
+  var currentQuestionObj = quizState.questionsAndAnswers[quizState.currentQuestion-1];
 
-var currentAnswers = currentQuestionObj.answers;
+  // Vars for questions and answers html
+  var currentQuestion = currentQuestionObj.question;
+  var currentAnswers = currentQuestionObj.answers;
+  var letters = quizState.answerChoices;
+  var ansA = letters[0] + currentAnswers[0];
+  var ansB = letters[1] + currentAnswers[1];
+  var ansC = letters[2] + currentAnswers[2];
+  var ansD = letters[3] + currentAnswers[3];
 
-var letters = quizState.answerChoices;
+  // current Level
+  var currentLevel = quizState.currentQuestion;
+  // current HP
+  var currentHP = 10 - quizState.questionIsWrong;
 
-var ansA = letters[0] + currentAnswers[0];
-var ansB = letters[1] + currentAnswers[1];
-var ansC = letters[2] + currentAnswers[2];
-var ansD = letters[3] + currentAnswers[3];
-
-
-var currentLevel = quizState.currentQuestion;
-
-
-
-  // TODO HP
-
-
-  // var currentHP =
-
+  // notify for answers correct
   var ansNotify = "You have " + '<span class="questions-correct">' + quizState.questionIsCorrect + "</span>" + " questions correct out of 10.";
 
-
-
-  // quizState.currentAnswerA.push[answers[0]];
-  // quizState.currentAnswerB.push[answers[1]];
-  // quizState.currentAnswerC.push[answers[2]];
-  // quizState.currentAnswerD.push[answers[3]];
 
   var quizHtml = (`
     <div>
@@ -216,6 +206,7 @@ var currentLevel = quizState.currentQuestion;
     <div class= "answer-D js-answers answers"><p>${ansD}</p></div>
     <div class= "js-level level">Level ${currentLevel}</div>
     <div class= "js-level-continue level-continue hidden">To level ${currentLevel + 1}</div>
+    <div class="js-current-hp">HP: ${currentHP}/10</div>
     <div class= "js-avatar avatar"></div>
     <div class= "answer-notify"><p>${ansNotify}</p></div>
     <button class="js-answer-submit answer-submit">Submit Answer</button>
@@ -228,11 +219,14 @@ var currentLevel = quizState.currentQuestion;
   $('body').append(quizHtml);
   $('.js-avatar').addClass(quizState.characterClass);
 
-  // Re-establish audio listeners
+  // Re-establish listeners and call new listeners for the main quiz page
   mouseClicklisten();
   mouseHoverlisten();
   answerSelectListen();
   quizSubmitListen();
+
+  // Reset the submit button
+  quizState.submitClicked = 0;
 }
 
 // TODO finish this function
@@ -249,15 +243,19 @@ function answerIsWrong() {
 function testSelectedAnswer() {
 
 
-  var selectedAnswer = $("[class*='green-selected']").text().replace(/^[ABCD]\. /, "");
+  var selectedAnswer = $("[class*='green-selected']").text().replace(/^.../, "");
   var rightAnswer = quizState.questionsAndAnswers[quizState.currentQuestion - 1].correctAnswer;
       if (selectedAnswer === rightAnswer) {
         answerIsCorrect();
+
       } else {
         answerIsWrong();
+
       };
-      var answerArray = quizState.questionsAndAnswers[quizState.currentQuestion-1].answers;
-      answerArray
+      // var answerArray = quizState.questionsAndAnswers[quizState.currentQuestion-1].answers;
+      // answerArray.forEach(function(element, index){
+      //
+      // })
 }
 // $('.js-answers').not(selectedAnswer).addClass('red-selected');
 
@@ -305,10 +303,11 @@ $('button.js-welcome-text, .char').click(function(event) {
 
 // Answer select listener
 function answerSelectListen () {
-$('.js-answers').click(function(event){
+$('.js-answers').click(function(event) {
   var elementsNotSelected = $('.js-answers').not($(this));
-
-  if ($(this).hasClass('red-selected')) {
+  if (quizState.submitClicked === 1) {
+    return
+  } else if ($(this).hasClass('red-selected')) {
   $(this).removeClass('red-selected');
 };
 
@@ -321,19 +320,27 @@ $(this).addClass('green-selected');
 }
 answerSelectListen()
 
+
+
 // TODO finish Submit listener
 function quizSubmitListen() {
-   if ($('.js-answers').hasClass('green-selected').length === 0) {
-     return
-   };
-  $('.js-answer-submit').click(function(event) {
-    $('.level-continue').removeClass('hidden');
-    $('js-answers').removeClass('green-selected');
+    // tests if an answer has been submitted: if not alert the user and exit
+    $('.js-answer-submit').click(function(event) {
+      if (($('.js-answers').hasClass('green-selected')) === false) {
+        alert("Please select an answer");
+        return
 
-//     // Test if the answers are correct or incorrect
-//
-//
-//
-// // $('.answers p').text().replace(/([A.]|[B.]|[C.]|[D.])/g, "") testing
+      } else if ( ($('.level-continue').hasClass('hidden')) ) {
+        $('.level-continue').removeClass('hidden');
+        quizState.quizSubmitCounter++;
+        quizState.submitClicked = 1;
+        quizHtmlCreateAndAppend();
+        testSelectedAnswer();          $('js-answers').removeClass('green-selected');
+
+        // add answer testing functions here
+
+      } else {
+        alert("Please click on the To Level button to continue");
+      }
   });
 }

@@ -161,12 +161,13 @@ button.welcome-text {
     position: absolute;
     border: 2px white solid;
     border-radius: 10px;
-    width: 458px;
+    width: 470px;
     left: 0;
     right: 0;
     margin-left: auto;
     margin-right: auto;
     padding-top: 3px;
+    line-height: 21px;
 }
 
 .answers, .answer-notify {
@@ -180,7 +181,7 @@ button.welcome-text {
     position: absolute;
     text-align: center;
     background-color: rgba(44, 18, 154, 20);
-    height: 58px;
+    height: 70px;
     width: 200px;
     padding-bottom: 24px;
 }
@@ -222,12 +223,23 @@ button.welcome-text {
     position: absolute;
     display: inline-block;
     background-position-x: 3px;
-    top: 129px;
+    top: 150px;
     left: 0px;
     right: 0px;
     margin-left: auto;
     margin-right: auto;
+}
 
+.js-current-hp {
+  font-family: FinalFantasy;
+  color: white;
+  font-size: 25px;
+  position: absolute;
+  display: inline-block;
+  top: 130px;
+  left: 0px;
+  right: 0px;
+  text-align: center;
 }
 
 .answer-notify {
