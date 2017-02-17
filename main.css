@@ -380,6 +380,6 @@ filter: brightness(100%);
     filter: brightness(150%);
 }
 
-body:hover, .welcome-text:hover, .answer-submit:hover {
+body:hover, .welcome-text:hover, .answer-submit:hover, .welcome-text2:hover, .quiz-report.hover {
     cursor: url('Images/cursor.png') 17 4, auto;
 }
