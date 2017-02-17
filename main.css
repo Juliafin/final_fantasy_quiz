@@ -36,6 +36,19 @@ div.welcome-screen {
     border-radius: 10px;
 }
 
+div.welcome-screen2 {
+    display: block;
+    position: absolute;
+    height: 500px;
+    width: 800px;
+    margin: auto;
+    top: 144px;
+    left: 0px;
+    right: 0px;
+    background: linear-gradient(#7B7BD6, #000042);
+    border-radius: 10px;
+}
+
 button.welcome-text {
     color: white;
     font-family: FinalFantasy;
@@ -53,6 +66,22 @@ button.welcome-text {
     white-space: normal;
 }
 
+button.welcome-text2 {
+    color: white;
+    font-family: FinalFantasy;
+    font-size: 22px;
+    font-weight: bold;
+    text-align: center;
+    width: 800px;
+    height: 500px;
+    outline: none;
+    border-bottom: 3px rgb(37, 112, 149) solid;
+    border-right: 3px rgb(78, 152, 237) solid;
+    border-left: 3px rgb(78, 152, 237) solid;
+    background-color: inherit;
+    border-radius: 12px;
+    white-space: normal;
+}
 .p1 {
     position: absolute;
     top: 44px;
@@ -335,11 +364,20 @@ filter: brightness(100%);
   display: none;
 }
 
+.quiz-report {
+    position: absolute;
+    color: white;
+    font-family: FinalFantasy;
+    top: 150px;
+    text-align: center;
+    left: 0px;
+    right: 0px;
+}
 
 .answers:hover, .answer-submit:hover, .avatar:hover, .char:hover,  .level-continue:hover {
     filter: brightness(150%);
 }
 
 body:hover, .welcome-text:hover, .answer-submit:hover {
-    cursor: url('Images/cursor.png'), auto;
+    cursor: url('Images/cursor.png') 17 4, auto;
 }

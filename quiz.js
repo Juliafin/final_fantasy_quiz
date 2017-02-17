@@ -86,6 +86,7 @@ fix cursor offset
 sound effect for submit button
 */
 
+//Main Quiz State
 var quizState = {
 
   questionsAndAnswers: [
@@ -152,8 +153,8 @@ var quizState = {
   ],
 
   answerChoices: ['A. ', 'B. ', 'C. ', 'D. '],
-  answerClasses: ["('answer-A')", "('answer-B')", "('answer-C')", "('answer-D')"],
-  //letters: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I'], //etc.
+  answerClasses: [".answer-A", ".answer-B", ".answer-C", ".answer-D"],
+
 
   currentQuestion: 0,
   questionIsCorrect: 0,
@@ -171,8 +172,7 @@ var quizState = {
 
 
 // State Modification functions
-// function renderQuestion()
-function quizHtmlCreateAndAppend() {
+function renderAndIterateQuestion() {
   // Iterate index counters to access appropriate questions
   quizState.currentQuestion += 1;
 
@@ -195,10 +195,7 @@ function quizHtmlCreateAndAppend() {
   // text for continue button
   var toLevelText = "To level " + (currentLevel + 1)
 
-  // notify for answers correct
-  // var ansNotify = "You have " + '<span class="questions-correct">' + quizState.questionIsCorrect + "</span>" + " questions correct out of 10.";
-
-
+  // variable for the quiz html
   var quizHtml = (`
     <div>
     <div class= "js-main-quiz main-quiz">
@@ -220,57 +217,119 @@ function quizHtmlCreateAndAppend() {
 
 
   // Remove existing html and append to DOM
-  $('.js-welcome-screen').remove();
-  $('body').append(quizHtml);
-  $('.js-avatar').addClass(quizState.characterClass);
+    $('.js-welcome-screen').remove();
+    $('.js-welcome-screen2').remove();
+    $('body').append(quizHtml);
+    $('.js-avatar').addClass(quizState.characterClass);
 
   // Re-establish listeners and call new listeners for the main quiz page
-  mouseClicklisten();
-  mouseHoverlisten();
-  answerSelectListen();
-  quizSubmitListen();
-  continueButtonListen();
+    mouseClicklisten();
+    mouseHoverlisten();
+    answerSelectListen();
+    quizSubmitListen();
+    continueButtonListen();
 
-  // Reset the submit button
-  quizState.submitClicked = 0;
+
 }// end of html append function
 
 
+function resetWelcomeScreen() {
+  var welcomeScreenHtml = (`
+    <div>
+    <header class="header"></header>
+    <div class="js-welcome-screen2 welcome-screen2">
+    <div class="quiz-report">
+      <p>You answered ${quizState.questionIsCorrect} out of 10 questions right!</p>
+      <p> You got ${quizState.questionIsWrong} questions wrong!</p>
+    </div>
+    <div class="quiz-report"></div>
+      <button class="js-welcome-text2 welcome-text2">
+        <div class="char m-dragoon"></div>
+        <div class="char f-dragoon"></div>
+        <div class="char m-whitemage"></div>
+        <div class="char f-whitemage"></div>
+        <div class="char m-redmage"></div>
+        <div class="char f-redmage"></div>
+        <div class="char m-blackmage"></div>
+        <div class="char f-blackmage"></div>
+        <div class="char m-ninja"></div>
+        <div class="char f-ninja"></div>
+        <div class="char m-fighter"></div>
+        <div class="char f-fighter"></div>
+
+        <p class="p1">Welcome to the classic Final Fantasy Series Quiz!</p>
+        <p class="p2">Please select your Avatar or press space to continue</p>
+    </button>
+
+    </div>
+  </div>
+    `)
+    $('body div').remove();
+    $('body').prepend(welcomeScreenHtml);
+
+    welcomeListener();
+    mouseHoverlisten();
+    mouseClicklisten();
+
+}
+
+
+
+function resetStateCounters() {
+  quizState.currentQuestion= 0
+  quizState.questionIsCorrect= 0
+  quizState.questionIsWrong= 0
+  quizState.characterClass= ''
+  quizState.quizSubmitCounter= 0
+  quizState.submitClicked= 0
+}
+
+
+
 // Answer Tests
+
+// Iterates correct answer counter
 function answerIsCorrect() {
   quizState.questionIsCorrect += 1;
-}
-
+};
+// Iterates incorrect answer counter
 function answerIsWrong() {
   quizState.questionIsWrong += 1;
-}
+};
 
+// tests if the selected answer is correct, then displays the right and wrong answers
 function testSelectedAnswer() {
 //
 
   var selectedAnswer = $("[class*='green-selected']").text().replace(/^.../, "");
   var rightAnswer = quizState.questionsAndAnswers[quizState.currentQuestion-1].correctAnswer;
 
-      if (selectedAnswer === rightAnswer) {
-        answerIsCorrect();
+      if (selectedAnswer === rightAnswer) answerIsCorrect();
+       else if (selectedAnswer !== rightAnswer) answerIsWrong();
 
-      } else if (selectedAnswer !== rightAnswer) {
-        answerIsWrong();
+      var selectionClasses = quizState.answerClasses;
+      var answerArray = quizState.questionsAndAnswers[quizState.currentQuestion-1].answers;
+      answerArray.forEach(function(element, index){
+        if (element === rightAnswer) {
+          $(selectionClasses[index]).addClass('green-selected');
+        } else {
+          $(selectionClasses[index]).addClass('red-selected');
 
-      };
-      // var answerArray = quizState.questionsAndAnswers[quizState.currentQuestion-1].answers;
-      // answerArray.forEach(function(element, index){
-      //
-      // })
+        };
+
+      });
 }
-// $('.js-answers').not(selectedAnswer).addClass('red-selected');
+
+
+
+
 
 
 // Event Listeners
 
 // Audio listeners
 
-// hover
+// hover (play sound)
 function mouseHoverlisten() {
   var menuMove = $('#menu_move')[0];
   $('.js-answers, .js-answer-submit, .char, .js-avatar').mouseenter(function(event) {
@@ -279,35 +338,40 @@ function mouseHoverlisten() {
     menuMove.play();
   });
 }
-
+// Class mouse hover listener
 $(document).ready(function(){
   mouseHoverlisten();
 });
 
-// mouse click
+// mouse click (play sound)
 function mouseClicklisten() {
   var clickAnswer = $('#menu_click_answer')[0];
-  $('div .js-answers, button.welcome-text .char').click(function(event) {
+  $('div .js-answers, button.welcome-text .char, button.welcome-text2 .char, .js-answer-submit').click(function(event) {
     event.preventDefault();
     clickAnswer.pause();
     clickAnswer.play();
   });
 }
 
+// Call mouseclick listener
 $(document).ready(function(){
 mouseClicklisten();
 });
 
 
-// Welcome listener
-$('button.js-welcome-text, .char').click(function(event) {
-  quizState.characterClass = $(this).attr('class').replace('char', '');
-  quizHtmlCreateAndAppend();
-});
+// Welcome listener - initial listener on welcome screen
+function welcomeListener () {
+  $('.js-welcome-text, .js-welcome-text2, .char').click(function(event) {
+    resetStateCounters();
+    quizState.characterClass = $(this).attr('class').replace("char", '');
+    renderAndIterateQuestion();
+  });
+}
+// call listener
+welcomeListener();
 
 
-
-// Answer select listener
+// Answer select (highlight red or green) listener
 function answerSelectListen () {
 $('.js-answers').click(function(event) {
   var elementsNotSelected = $('.js-answers').not($(this));
@@ -323,13 +387,13 @@ if (elementsNotSelected.hasClass('green-selected')) {
 };
 
 $(this).addClass('green-selected');
+
 });
 }
-answerSelectListen()
 
 
 
-// TODO finish Submit listener
+// Submit Listener - test and show correct answers, iterate submit counter counter
 function quizSubmitListen() {
     // tests if an answer has been submitted: if not alert the user and exit
     $('.js-answer-submit').click(function(event) {
@@ -338,12 +402,19 @@ function quizSubmitListen() {
         return
 
       } else if ( ($('.level-continue').hasClass('hidden')) ) {
-        $('js-level-continue').text("toLevelText");
+        // displays the hidden continue button
         $('.level-continue').removeClass('hidden');
-        quizState.quizSubmitCounter++;
+        // locks the selection in place (in the answer select listener)
         quizState.submitClicked = 1;
+        // for keeping track of the total number of quiz submits
+        // will activate the continue button to reset on the 11th click
+        quizState.quizSubmitCounter++;
         testSelectedAnswer();
         $('js-answers').removeClass('green-selected');
+
+          if (quizState.quizSubmitCounter === 10) {
+            $('.js-level-continue').text("Restart Quiz");
+          }
 
 
         // add answer testing functions here
@@ -357,7 +428,13 @@ function quizSubmitListen() {
 
 function continueButtonListen() {
   $('.js-level-continue').click(function(event){
+    if (quizState.quizSubmitCounter < 10) {
     event.preventDefault;
-    quizHtmlCreateAndAppend();
-  })
+    // Reset the submit button
+      quizState.submitClicked = 0;
+    renderAndIterateQuestion();
+  } else {
+    resetWelcomeScreen();
+  };
+});
 }
