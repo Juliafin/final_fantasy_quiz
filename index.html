@@ -1,14 +1,15 @@
 <!DOCTYPE html>
-<html><head>
+<html>
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     <meta description="A quiz about the Final Fantasy series">
-    <link rel="stylesheet" href="normalize.css">
-    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/main.css">
     <title>Final Fantasy Quiz</title>
   </head>
   <body>
-    <div>
+    <div class="container">
     <header class="header"></header>
     <div class="js-welcome-screen welcome-screen">
       <button class="js-welcome-text welcome-text">
@@ -24,30 +25,29 @@
         <div class="char f-ninja"></div>
         <div class="char m-fighter"></div>
         <div class="char f-fighter"></div>
-
         <p class="p1">Welcome to the classic Final Fantasy Series Quiz!</p>
         <p class="p2">Please select your Avatar or press space to continue</p>
     </button>
-
     </div>
   </div>
 
-    <!-- Mouse Hover Audio-->
-    <audio id="menu_move" preload="auto">
-       <source src="audio/cursor_move.mp3" type="audio/mpeg"></source>
-       <!-- <source src="audio/cursor_move.ogg" type="audio/ogg"></source> -->
-    </audio>
+  <!-- Mouse Hover Audio-->
+  <audio id="menu_move" preload="auto">
+     <source src="audio/cursor_move.mp3" type="audio/mpeg"></source>
+     <!-- <source src="audio/cursor_move.ogg" type="audio/ogg"></source> -->
+  </audio>
 
-    <!-- Mouse Click Audio -->
-    <audio id="menu_click_answer" preload="auto">
-       <source src="audio/cursor_answer_click.mp3" type="audio/mpeg"></source>
-       <!-- <source src="audio/cursor_answer_click.ogg" type="audio/ogg"></source> -->
+  <!-- Mouse Click Audio -->
+  <audio id="menu_click_answer" preload="auto">
+     <source src="audio/cursor_answer_click.mp3" type="audio/mpeg"></source>
+     <!-- <source src="audio/cursor_answer_click.ogg" type="audio/ogg"></source> -->
 
-    </audio>
-    <!-- Scripts -->
+  </audio>
+  <!-- Scripts -->
 
-    <script src="https://code.jquery.com/jquery-3.1.0.min.js" charset="utf-8"></script>
-    <script src="quiz.js" charset="utf-8"></script>
+  <script src="https://code.jquery.com/jquery-3.1.0.min.js" charset="utf-8"></script>
+  <script src="quiz.js" charset="utf-8"></script>
 
 
-</body></html>
+</body>
+</html>

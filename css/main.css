@@ -1,11 +1,16 @@
-*{
+* {
   box-sizing: border-box;
 }
+
 @font-face {
     font-family: FinalFantasy;
-    src: url('fonts/final_fantasy_36_font.ttf');
+    src: url('../fonts/final_fantasy_36_font.ttf');
 }
 
+.container {
+  height: 1000px;
+
+}
 .header {
     display: block;
     height: 115px;
@@ -14,7 +19,7 @@
     width: 100%;
     position: absolute;
     text-align: center;
-    background-image: url(Images/final_fantasy_banner.png);
+    background-image: url(../images/final_fantasy_banner.png);
     background-size: contain;
     border-bottom: 3px rgb(37, 112, 149) solid;
     border-top: 3px rgb(37, 112, 149) solid;
@@ -82,6 +87,7 @@ button.welcome-text2 {
     border-radius: 12px;
     white-space: normal;
 }
+
 .p1 {
     position: absolute;
     top: 44px;
@@ -96,9 +102,6 @@ button.welcome-text2 {
     right: 0px;
 }
 
-
-/*Characters*/
-
 .char {
     width: 75px;
     height: 75px;
@@ -111,51 +114,51 @@ button.welcome-text2 {
 }
 
 .m-dragoon {
-    background-image: url(Images/charclasses/M_dragoon.png);
+    background-image: url(../images/charclasses/m_dragoon.png);
 }
 
 .f-dragoon {
-    background-image: url(Images/charclasses/F_dragoon.png);
+    background-image: url(../images/charclasses/f_dragoon.png);
 }
 
 .m-whitemage {
-    background-image: url(Images/charclasses/M_whitemage.png);
+    background-image: url(../images/charclasses/m_whitemage.png);
 }
 
 .f-whitemage {
-    background-image: url(Images/charclasses/F_whitemage.png);
+    background-image: url(../images/charclasses/f_whitemage.png);
 }
 
 .m-redmage {
-    background-image: url(Images/charclasses/M_redmage.png);
+    background-image: url(../images/charclasses/m_redmage.png);
 }
 
 .f-redmage {
-    background-image: url(Images/charclasses/F_redmage.png);
+    background-image: url(../images/charclasses/f_redmage.png);
 }
 
 .m-blackmage {
-    background-image: url(Images/charclasses/M_blackmage.png);
+    background-image: url(../images/charclasses/m_blackmage.png);
 }
 
 .f-blackmage {
-    background-image: url(Images/charclasses/F_blackmage.png);
+    background-image: url(../images/charclasses/f_blackmage.png);
 }
 
 .m-ninja {
-    background-image: url(Images/charclasses/M_ninja.png);
+    background-image: url(../images/charclasses/m_ninja.png);
 }
 
 .f-ninja {
-    background-image: url(Images/charclasses/F_ninja.png);
+    background-image: url(../images/charclasses/f_ninja.png);
 }
 
 .m-fighter {
-    background-image: url(Images/charclasses/M_fighter.png);
+    background-image: url(../images/charclasses/m_fighter.png);
 }
 
 .f-fighter {
-    background-image: url(Images/charclasses/F_fighter.png);
+    background-image: url(../images/charclasses/f_fighter.png);
 }
 
 .char:hover {
@@ -284,6 +287,7 @@ button.welcome-text2 {
     padding: 0;
     background-color: rgba(64, 223, 224, 0.61);
 }
+
  span.questions-correct {
     text-decoration: underline;
     color: #3aff3a;
@@ -344,22 +348,22 @@ p {
 }
 
 .level-continue {
-position: absolute;
-display: inline-block;
-border: 2px white solid;
-top: 30px;
-right: 95px;
-border-radius: 10px;
-height: 50px;
-width: 141px;
-background-color: rgb(83, 92, 129);
-color: #fdff00;
-text-align: center;
-line-height: 50px;
-font-family: FinalFantasy;
-font-weight: bold;
-font-size: 28px;
-filter: brightness(100%);
+  position: absolute;
+  display: inline-block;
+  border: 2px white solid;
+  top: 30px;
+  right: 95px;
+  border-radius: 10px;
+  height: 50px;
+  width: 141px;
+  background-color: rgb(83, 92, 129);
+  color: #fdff00;
+  text-align: center;
+  line-height: 50px;
+  font-family: FinalFantasy;
+  font-weight: bold;
+  font-size: 28px;
+  filter: brightness(100%);
 }
 
 .hidden {
@@ -380,6 +384,7 @@ filter: brightness(100%);
     filter: brightness(150%);
 }
 
-body:hover, .welcome-text:hover, .answer-submit:hover, .welcome-text2:hover, .quiz-report.hover {
-    cursor: url('Images/cursor.png') 17 4, auto;
+/* :hover, .welcome-text:hover, .answer-submit:hover, .welcome-text2:hover, .quiz-report.hover */
+.container:hover, .welcome-text:hover, .answer-submit:hover, .answers:hover, .welcome-text2:hover, .quiz-report.hover, .main-quiz:hover {
+    cursor: url('../images/cursor.png') 17 4, auto;
 }

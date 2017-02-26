@@ -164,7 +164,7 @@ var quizState = {
   quizSubmitCounter: 0,
   submitClicked: 0,
 
-}
+};
 
 
 
