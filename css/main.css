@@ -8,12 +8,11 @@
 }
 
 .container {
-  height: 1000px;
-
+  height: 500px;
 }
 .header {
     display: block;
-    height: 115px;
+    height: 25%;
     top: 0px;
     left: 0px;
     width: 100%;
@@ -30,13 +29,11 @@
 
 div.welcome-screen {
     display: block;
-    position: absolute;
+    position: relative;
     height: 300px;
     width: 800px;
-    margin: auto;
+    margin: 0 auto;
     top: 144px;
-    left: 0px;
-    right: 0px;
     background: linear-gradient(#7B7BD6, #000042);
     border-radius: 10px;
 }
@@ -318,10 +315,10 @@ button.answer-submit {
     border-radius: 10px;
     background-color: rgba(0, 255, 92, 0.65);
     height: 100px;
-    width: 125px;
+    width: 25%;
     color: white;
     font-family: FinalFantasy;
-    font-size: 25px;
+    font-size: 1.2em;
     display: inline-block;
     position: absolute;
     margin-left: auto;
@@ -387,4 +384,302 @@ p {
 /* :hover, .welcome-text:hover, .answer-submit:hover, .welcome-text2:hover, .quiz-report.hover */
 .container:hover, .welcome-text:hover, .answer-submit:hover, .answers:hover, .welcome-text2:hover, .quiz-report.hover, .main-quiz:hover {
     cursor: url('../images/cursor.png') 17 4, auto;
+}
+
+@media screen and (max-width:1700px) {
+  .main-quiz {
+    top: 35%
+  }
+}
+
+
+@media screen and (max-width: 1000px) {
+
+  .main-quiz {
+    width: 80%
+  }
+
+  .level {
+    left: 3%;
+    height: 12%;
+    width: 15%;
+    font-size: 1.3em;
+
+  }
+
+  .level-continue {
+    right: 2%;
+    height: 12%;
+    width: 15%;
+    font-size: 1.3em
+  }
+  
+  .answer-A {
+    left: 5%;
+  }
+
+  .answer-B {
+    right: 5%
+  }
+
+  .answer-C {
+    left: 10%;
+  }
+
+  .answer-D {
+    right: 10%;
+  }
+}
+
+
+@media screen and (max-width:880px) {
+  
+  .level {
+    height: 10%;
+    width: 9%;
+    font-size: 1em;
+    line-height: 167%
+  }
+
+  .level-continue {
+    height: 10%;
+    width: 12%;
+    font-size: 1em;
+    line-height: 167%;
+  }
+
+  .answers {
+    font-size: 1em;
+    width: 35%;
+  }
+  
+  .answer-A {
+    width: 20%;
+  }
+
+  .answer-B {
+    width: 20%;
+  }
+
+  .answer-C {
+    width: 20%;
+  }
+
+  .answer-D {
+    width: 20%;
+  }
+
+}
+
+
+
+
+@media screen and (max-width: 750px) {
+
+  button.welcome-text {
+    width:600px;
+  }
+
+  div.welcome-screen.js-welcome-screen {
+    width: 600px;    
+  }
+
+  .question {
+    width: 65%;
+    font-size: 1.3em;
+  }
+
+  .answer-notify {
+    top: 20%;
+  }
+
+  .answers {
+    font-size: .85em;
+    width: 25%
+  }
+
+
+    
+}
+
+
+@media screen and (max-width: 650px) {
+
+  .question {
+    height: 15%;
+    width: 69%;
+    font-size: 1em;
+  }
+
+  .answer-notify {
+    font-size: .85em;
+  } 
+
+  .level {
+    font-size: .8em;
+  }
+
+  .level-continue {
+    font-size: .8em;
+  }
+
+
+@media screen and (max-width: 550px) {
+
+  button.welcome-text {
+    width: 400px;
+    height: 450px;
+    
+  }
+
+  div.welcome-screen.js-welcome-screen {
+    
+    width: 400px;
+    height:450px;
+    top: 15%;
+  }
+
+  .question {
+    width: 65%;
+    height: 15%;
+    font-size: .9em;
+  }
+
+  .answer-notify {
+    font-size: .8em;
+    width: 50%;
+    border: 2px solid white;
+  }
+
+  .level {
+    font-size:.7em;
+  }
+
+  .level-continue{
+    font-size: .7em;
+  }
+
+  .answers {
+    font-size: .7em;
+    height: 17%;
+    width: 30%;
+  }
+
+  .answer-submit {
+    width: 30%;
+  }
+
+  .answer-C {
+    left: 5%;
+  }
+
+  .answer-D {
+    right: 5%;
+  }
+
+}
+
+
+@media screen and (max-width:450px) {
+
+  .char {
+    height:50px;
+    top: 10px;
+  }
+  
+  .question {
+    font-size: .6em;
+    width: 55%;
+  }
+
+  .answer-notify {
+    font-size: .6em;
+  }
+
+  .avatar {
+    height: 16%;
+  }
+
+  .answers{
+    font-size: .8em;
+    
+  }
+
+  .level {
+    font-size: .5em;
+    height: 7%;
+    width: 10%;
+  }
+
+  .level-continue {
+    font-size .5em;
+    height: 7%;
+    width: 15%;
+  }
+
+  .js-current-hp {
+    font-size: 1.2em
+  }
+
+  .answers {
+    font-size: .6em;
+    width: 30%;
+  }
+
+  .answer-submit {
+    width: 20%;
+    height: 20%;
+  }
+
+
+}
+
+@media screen and (max-width:370px) {
+  
+  .p1, .p2 {
+    font-size:.7em;
+  }
+
+  button.welcome-text{
+    width: 275px;
+    height:350px;
+  }
+  div.welcome-screen.js-welcome-screen {
+    width: 275px;
+    height:350px
+  }
+  
+  .char {
+    top: 65px;
+  }
+
+  .avatar {
+    height: 13%;
+    left: 10%
+  }
+
+  .question {
+    font-size: .5em;
+    height: 14%;
+    line-height: 130%;
+  }
+  
+  .js-current-hp {
+    font-size: 1em;
+
+  }
+  .answers{
+    width: 35%;
+    border: 1px white solid;
+    font-size: .45em;
+    height: 10%;
+  }
+
+  .answer-C {
+    top: 55%;
+  }
+
+  .answer-D {
+    top : 55%
+  }
 }
