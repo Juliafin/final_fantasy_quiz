@@ -1,222 +1,226 @@
-* {
+  * {
   box-sizing: border-box;
 }
 
 @font-face {
-    font-family: FinalFantasy;
-    src: url('../fonts/final_fantasy_36_font.ttf');
+  font-family: FinalFantasy;
+  src: url('../fonts/final_fantasy_36_font.ttf');
 }
 
 .container {
   height: 500px;
 }
+
 .header {
-    display: block;
-    height: 25%;
-    top: 0px;
-    left: 0px;
-    width: 100%;
-    position: absolute;
-    text-align: center;
-    background-image: url(../images/final_fantasy_banner.png);
-    background-size: contain;
-    border-bottom: 3px rgb(37, 112, 149) solid;
-    border-top: 3px rgb(37, 112, 149) solid;
-    background-repeat: no-repeat;
-    background-position: center;
-    border-radius: 5px;
+  display: block;
+  height: 25%;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  position: absolute;
+  text-align: center;
+  background-image: url(../images/final_fantasy_banner.png);
+  background-size: contain;
+  border-bottom: 3px rgb(37, 112, 149) solid;
+  border-top: 3px rgb(37, 112, 149) solid;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 5px;
 }
 
 div.welcome-screen {
-    display: block;
-    position: relative;
-    height: 300px;
-    width: 800px;
-    margin: 0 auto;
-    top: 144px;
-    background: linear-gradient(#7B7BD6, #000042);
-    border-radius: 10px;
+  display: block;
+  position: relative;
+  height: 300px;
+  width: 800px;
+  margin: 0 auto;
+  top: 144px;
+  background: linear-gradient(#7B7BD6, #000042);
+  border-radius: 10px;
 }
 
 div.welcome-screen2 {
-    display: block;
-    position: absolute;
-    height: 500px;
-    width: 800px;
-    margin: auto;
-    top: 144px;
-    left: 0px;
-    right: 0px;
-    background: linear-gradient(#7B7BD6, #000042);
-    border-radius: 10px;
+  display: block;
+  position: absolute;
+  height: 500px;
+  width: 800px;
+  margin: auto;
+  top: 144px;
+  left: 0px;
+  right: 0px;
+  background: linear-gradient(#7B7BD6, #000042);
+  border-radius: 10px;
 }
 
 button.welcome-text {
-    color: white;
-    font-family: FinalFantasy;
-    font-size: 22px;
-    font-weight: bold;
-    text-align: center;
-    width: 800px;
-    height: 300px;
-    outline: none;
-    border-bottom: 3px rgb(37, 112, 149) solid;
-    border-right: 3px rgb(78, 152, 237) solid;
-    border-left: 3px rgb(78, 152, 237) solid;
-    background-color: inherit;
-    border-radius: 12px;
-    white-space: normal;
+  color: white;
+  font-family: FinalFantasy;
+  font-size: 22px;
+  font-weight: bold;
+  text-align: center;
+  width: 800px;
+  height: 300px;
+  outline: none;
+  border-bottom: 3px rgb(37, 112, 149) solid;
+  border-right: 3px rgb(78, 152, 237) solid;
+  border-left: 3px rgb(78, 152, 237) solid;
+  background-color: inherit;
+  border-radius: 12px;
+  white-space: normal;
 }
 
 button.welcome-text2 {
-    color: white;
-    font-family: FinalFantasy;
-    font-size: 22px;
-    font-weight: bold;
-    text-align: center;
-    width: 800px;
-    height: 500px;
-    outline: none;
-    border-bottom: 3px rgb(37, 112, 149) solid;
-    border-right: 3px rgb(78, 152, 237) solid;
-    border-left: 3px rgb(78, 152, 237) solid;
-    background-color: inherit;
-    border-radius: 12px;
-    white-space: normal;
+  color: white;
+  font-family: FinalFantasy;
+  font-size: 22px;
+  font-weight: bold;
+  text-align: center;
+  width: 800px;
+  height: 500px;
+  outline: none;
+  border-bottom: 3px rgb(37, 112, 149) solid;
+  border-right: 3px rgb(78, 152, 237) solid;
+  border-left: 3px rgb(78, 152, 237) solid;
+  background-color: inherit;
+  border-radius: 12px;
+  white-space: normal;
 }
 
 .p1 {
-    position: absolute;
-    top: 44px;
-    left: 0px;
-    right: 0px;
+  position: absolute;
+  top: 44px;
+  left: 0px;
+  right: 0px;
 }
 
 .p2 {
-    position: absolute;
-    top: 90px;
-    left: 0px;
-    right: 0px;
+  position: absolute;
+  top: 90px;
+  left: 0px;
+  right: 0px;
 }
 
 .char {
-    width: 75px;
-    height: 75px;
-    background-size: contain;
-    background-repeat: no-repeat;
-    position: relative;
-    display: inline-block;
-    background-position-x: 12px;
-    top: 72px;
+  width: 75px;
+  height: 75px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: relative;
+  display: inline-block;
+  background-position-x: 12px;
+  top: 72px;
 }
 
 .m-dragoon {
-    background-image: url(../images/charclasses/m_dragoon.png);
+  background-image: url(../images/charclasses/m_dragoon.png);
 }
 
 .f-dragoon {
-    background-image: url(../images/charclasses/f_dragoon.png);
+  background-image: url(../images/charclasses/f_dragoon.png);
 }
 
 .m-whitemage {
-    background-image: url(../images/charclasses/m_whitemage.png);
+  background-image: url(../images/charclasses/m_whitemage.png);
 }
 
 .f-whitemage {
-    background-image: url(../images/charclasses/f_whitemage.png);
+  background-image: url(../images/charclasses/f_whitemage.png);
 }
 
 .m-redmage {
-    background-image: url(../images/charclasses/m_redmage.png);
+  background-image: url(../images/charclasses/m_redmage.png);
 }
 
 .f-redmage {
-    background-image: url(../images/charclasses/f_redmage.png);
+  background-image: url(../images/charclasses/f_redmage.png);
 }
 
 .m-blackmage {
-    background-image: url(../images/charclasses/m_blackmage.png);
+  background-image: url(../images/charclasses/m_blackmage.png);
 }
 
 .f-blackmage {
-    background-image: url(../images/charclasses/f_blackmage.png);
+  background-image: url(../images/charclasses/f_blackmage.png);
 }
 
 .m-ninja {
-    background-image: url(../images/charclasses/m_ninja.png);
+  background-image: url(../images/charclasses/m_ninja.png);
 }
 
 .f-ninja {
-    background-image: url(../images/charclasses/f_ninja.png);
+  background-image: url(../images/charclasses/f_ninja.png);
 }
 
 .m-fighter {
-    background-image: url(../images/charclasses/m_fighter.png);
+  background-image: url(../images/charclasses/m_fighter.png);
 }
 
 .f-fighter {
-    background-image: url(../images/charclasses/f_fighter.png);
+  background-image: url(../images/charclasses/f_fighter.png);
 }
 
 .char:hover {
-    filter: brightness(150%);
+  filter: brightness(150%);
 }
 
 
 /*Main Quiz CSS Starts Here*/
 
 .main-quiz {
-    display: block;
-    position: absolute;
-    height: 360px;
-    width: 1000px;
-    margin: auto;
-    top: 130px;
-    left: 0px;
-    right: 0px;
-    background: linear-gradient(#7B7BD6, #000042);
-    border-radius: 10px;
-    border: 2px solid black;
+  display: block;
+  position: absolute;
+  height: 360px;
+  width: 1000px;
+  margin: auto;
+  top: 130px;
+  left: 0px;
+  right: 0px;
+  background: linear-gradient(#7B7BD6, #000042);
+  border-radius: 10px;
+  border: 2px solid black;
 }
 
 .question {
-    color: white;
-    text-align: center;
-    font-family: FinalFantasy;
-    font-size: 28px;
-    margin-top: 10px;
-    background: #043343;
-    display: inline-block;
-    position: absolute;
-    border: 2px white solid;
-    border-radius: 10px;
-    width: 470px;
-    left: 0;
-    right: 0;
-    margin-left: auto;
-    margin-right: auto;
-    padding-top: 3px;
-    line-height: 21px;
+  color: white;
+  text-align: center;
+  font-family: FinalFantasy;
+  font-size: 28px;
+  margin-top: 10px;
+  background: #043343;
+  display: inline-block;
+  position: absolute;
+  border: 2px white solid;
+  border-radius: 10px;
+  width: 470px;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 3px;
+  line-height: 21px;
 }
 
-.answers, .answer-notify {
-    color: white;
-    font-size: 20px;
-    font-family: FinalFantasy;
-    border: 3.5px white solid;
-    display: inline-block;
-    border-radius: 10px;
-    padding: 10px;
-    position: absolute;
-    text-align: center;
-    background-color: rgba(44, 18, 154, 20);
-    height: 90px;
-    width: 200px;
-    padding-bottom: 24px;
-    z-index: 1;
+.answers,
+.answer-notify {
+  color: white;
+  font-size: 20px;
+  font-family: FinalFantasy;
+  border: 3.5px white solid;
+  display: inline-block;
+  border-radius: 10px;
+  padding: 10px;
+  position: absolute;
+  text-align: center;
+  background-color: rgba(44, 18, 154, 20);
+  height: 90px;
+  width: 200px;
+  padding-bottom: 24px;
+  z-index: 1;
 }
+
 
 /* CSS3 selectors */
+
 
 /* https://www.w3schools.com/cssref/sel_nth-of-type.asp
 .answer:nth-of-type(0) {}
@@ -226,38 +230,38 @@ button.welcome-text2 {
   */
 
 .answer-A {
-    top: 103px;
-    left: 86px;
+  top: 103px;
+  left: 86px;
 }
 
 .answer-B {
-    top: 103px;
-    right: 86px;
+  top: 103px;
+  right: 86px;
 }
 
 .answer-C {
-    top: 210px;
-    left: 150px;
+  top: 210px;
+  left: 150px;
 }
 
 .answer-D {
-    top: 210px;
-    right: 150px;
+  top: 210px;
+  right: 150px;
 }
 
 .avatar {
-    width: 75px;
-    height: 75px;
-    background-size: contain;
-    background-repeat: no-repeat;
-    position: absolute;
-    display: inline-block;
-    background-position-x: 3px;
-    top: 150px;
-    left: 0px;
-    right: 0px;
-    margin-left: auto;
-    margin-right: auto;
+  width: 75px;
+  height: 75px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: absolute;
+  display: inline-block;
+  background-position-x: 3px;
+  top: 150px;
+  left: 0px;
+  right: 0px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .js-current-hp {
@@ -274,70 +278,70 @@ button.welcome-text2 {
 }
 
 .answer-notify {
-    top: 77px;
-    right: 0px;
-    left: 0px;
-    margin-left: auto;
-    margin-right: auto;
-    width: 300px;
-    height: 23px;
-    padding: 0;
-    background-color: rgba(64, 223, 224, 0.61);
+  top: 77px;
+  right: 0px;
+  left: 0px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 300px;
+  height: 23px;
+  padding: 0;
+  background-color: rgba(64, 223, 224, 0.61);
 }
 
- span.questions-correct {
-    text-decoration: underline;
-    color: #3aff3a;
+span.questions-correct {
+  text-decoration: underline;
+  color: #3aff3a;
 }
 
 .level {
-    position: absolute;
-    display: inline-block;
-    border: 2px white solid;
-    top: 30px;
-    left: 102px;
-    border-radius: 10px;
-    height: 50px;
-    width: 98px;
-    background-color: rgb(83, 92, 129);
-    color: #fdff00;
-    text-align: center;
-    line-height: 50px;
-    font-family: FinalFantasy;
-    font-weight: bold;
-    font-size: 28px;
-    filter: brightness(100%);
+  position: absolute;
+  display: inline-block;
+  border: 2px white solid;
+  top: 30px;
+  left: 102px;
+  border-radius: 10px;
+  height: 50px;
+  width: 98px;
+  background-color: rgb(83, 92, 129);
+  color: #fdff00;
+  text-align: center;
+  line-height: 50px;
+  font-family: FinalFantasy;
+  font-weight: bold;
+  font-size: 28px;
+  filter: brightness(100%);
 }
 
 button.answer-submit {
-    outline: none;
-    border: 2px white solid;
-    border-radius: 10px;
-    background-color: rgba(0, 255, 92, 0.65);
-    height: 100px;
-    width: 25%;
-    color: white;
-    font-family: FinalFantasy;
-    font-size: 1.2em;
-    display: inline-block;
-    position: absolute;
-    margin-left: auto;
-    margin-right: auto;
-    left: 0px;
-    right: 0px;
-    top: 239px;
+  outline: none;
+  border: 2px white solid;
+  border-radius: 10px;
+  background-color: rgba(0, 255, 92, 0.65);
+  height: 100px;
+  width: 25%;
+  color: white;
+  font-family: FinalFantasy;
+  font-size: 1.2em;
+  display: inline-block;
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0px;
+  right: 0px;
+  top: 239px;
 }
 
 p {
-    margin-top: -1px;
+  margin-top: -1px;
 }
 
 .question p {
-    vertical-align: middle;
+  vertical-align: middle;
 }
 
 .green-selected {
-    background-color: #14ea14;
+  background-color: #14ea14;
 }
 
 .red-selected {
@@ -368,22 +372,34 @@ p {
 }
 
 .quiz-report {
-    position: absolute;
-    color: white;
-    font-family: FinalFantasy;
-    top: 150px;
-    text-align: center;
-    left: 0px;
-    right: 0px;
+  position: absolute;
+  color: white;
+  font-family: FinalFantasy;
+  top: 150px;
+  text-align: center;
+  left: 0px;
+  right: 0px;
 }
 
-.answers:hover, .answer-submit:hover, .avatar:hover, .char:hover,  .level-continue:hover {
-    filter: brightness(150%);
+.answers:hover,
+.answer-submit:hover,
+.avatar:hover,
+.char:hover,
+.level-continue:hover {
+  filter: brightness(150%);
 }
+
 
 /* :hover, .welcome-text:hover, .answer-submit:hover, .welcome-text2:hover, .quiz-report.hover */
-.container:hover, .welcome-text:hover, .answer-submit:hover, .answers:hover, .welcome-text2:hover, .quiz-report.hover, .main-quiz:hover {
-    cursor: url('../images/cursor.png') 17 4, auto;
+
+.container:hover,
+.welcome-text:hover,
+.answer-submit:hover,
+.answers:hover,
+.welcome-text2:hover,
+.quiz-report.hover,
+.main-quiz:hover {
+  cursor: url('../images/cursor.png') 17 4, auto;
 }
 
 @media screen and (max-width:1700px) {
@@ -392,294 +408,221 @@ p {
   }
 }
 
-
 @media screen and (max-width: 1000px) {
-
   .main-quiz {
     width: 80%
   }
-
   .level {
     left: 3%;
     height: 12%;
     width: 15%;
     font-size: 1.3em;
-
   }
-
   .level-continue {
     right: 2%;
     height: 12%;
     width: 15%;
     font-size: 1.3em
   }
-  
   .answer-A {
     left: 5%;
   }
-
   .answer-B {
     right: 5%
   }
-
   .answer-C {
     left: 10%;
   }
-
   .answer-D {
     right: 10%;
   }
 }
 
-
 @media screen and (max-width:880px) {
-  
   .level {
     height: 10%;
     width: 9%;
     font-size: 1em;
     line-height: 167%
   }
-
   .level-continue {
     height: 10%;
     width: 12%;
     font-size: 1em;
     line-height: 167%;
   }
-
   .answers {
     font-size: 1em;
     width: 35%;
   }
-  
   .answer-A {
     width: 20%;
   }
-
   .answer-B {
     width: 20%;
   }
-
   .answer-C {
     width: 20%;
   }
-
   .answer-D {
     width: 20%;
   }
-
 }
 
-
-
-
 @media screen and (max-width: 750px) {
-
   button.welcome-text {
-    width:600px;
+    width: 600px;
   }
-
   div.welcome-screen.js-welcome-screen {
-    width: 600px;    
+    width: 600px;
   }
-
   .question {
     width: 65%;
     font-size: 1.3em;
   }
-
   .answer-notify {
     top: 20%;
   }
-
   .answers {
     font-size: .85em;
     width: 25%
   }
-
-
-    
 }
 
-
 @media screen and (max-width: 650px) {
-
   .question {
     height: 15%;
     width: 69%;
     font-size: 1em;
   }
-
   .answer-notify {
     font-size: .85em;
-  } 
-
+  }
   .level {
     font-size: .8em;
   }
-
   .level-continue {
     font-size: .8em;
   }
-
-
-@media screen and (max-width: 550px) {
-
-  button.welcome-text {
-    width: 400px;
-    height: 450px;
-    
+  @media screen and (max-width: 550px) {
+    button.welcome-text {
+      width: 400px;
+      height: 450px;
+    }
+    div.welcome-screen.js-welcome-screen {
+      width: 400px;
+      height: 450px;
+      top: 15%;
+    }
+    .question {
+      width: 65%;
+      height: 15%;
+      font-size: .9em;
+    }
+    .answer-notify {
+      font-size: .8em;
+      width: 50%;
+      border: 2px solid white;
+    }
+    .level {
+      font-size: .7em;
+    }
+    .level-continue {
+      font-size: .7em;
+    }
+    .answers {
+      font-size: .7em;
+      height: 17%;
+      width: 30%;
+    }
+    .answer-submit {
+      width: 30%;
+    }
+    .answer-C {
+      left: 5%;
+    }
+    .answer-D {
+      right: 5%;
+    }
   }
-
-  div.welcome-screen.js-welcome-screen {
-    
-    width: 400px;
-    height:450px;
-    top: 15%;
+  @media screen and (max-width:450px) {
+    .char {
+      height: 50px;
+      top: 10px;
+    }
+    .question {
+      font-size: .6em;
+      width: 55%;
+    }
+    .answer-notify {
+      font-size: .6em;
+    }
+    .avatar {
+      height: 16%;
+    }
+    .answers {
+      font-size: .8em;
+    }
+    .level {
+      font-size: .5em;
+      height: 7%;
+      width: 10%;
+    }
+    .level-continue {
+      font-size .5em;
+      height: 7%;
+      width: 15%;
+    }
+    .js-current-hp {
+      font-size: 1.2em
+    }
+    .answers {
+      font-size: .6em;
+      width: 30%;
+    }
+    .answer-submit {
+      width: 20%;
+      height: 20%;
+    }
   }
-
-  .question {
-    width: 65%;
-    height: 15%;
-    font-size: .9em;
+  @media screen and (max-width:370px) {
+    .p1,
+    .p2 {
+      font-size: .7em;
+    }
+    button.welcome-text {
+      width: 275px;
+      height: 350px;
+    }
+    div.welcome-screen.js-welcome-screen {
+      width: 275px;
+      height: 350px
+    }
+    .char {
+      top: 65px;
+    }
+    .avatar {
+      height: 13%;
+      left: 10%
+    }
+    .question {
+      font-size: .5em;
+      height: 14%;
+      line-height: 130%;
+    }
+    .js-current-hp {
+      font-size: 1em;
+    }
+    .answers {
+      width: 35%;
+      border: 1px white solid;
+      font-size: .45em;
+      height: 10%;
+    }
+    .answer-C {
+      top: 55%;
+    }
+    .answer-D {
+      top: 55%
+    }
   }
-
-  .answer-notify {
-    font-size: .8em;
-    width: 50%;
-    border: 2px solid white;
-  }
-
-  .level {
-    font-size:.7em;
-  }
-
-  .level-continue{
-    font-size: .7em;
-  }
-
-  .answers {
-    font-size: .7em;
-    height: 17%;
-    width: 30%;
-  }
-
-  .answer-submit {
-    width: 30%;
-  }
-
-  .answer-C {
-    left: 5%;
-  }
-
-  .answer-D {
-    right: 5%;
-  }
-
-}
-
-
-@media screen and (max-width:450px) {
-
-  .char {
-    height:50px;
-    top: 10px;
-  }
-  
-  .question {
-    font-size: .6em;
-    width: 55%;
-  }
-
-  .answer-notify {
-    font-size: .6em;
-  }
-
-  .avatar {
-    height: 16%;
-  }
-
-  .answers{
-    font-size: .8em;
-    
-  }
-
-  .level {
-    font-size: .5em;
-    height: 7%;
-    width: 10%;
-  }
-
-  .level-continue {
-    font-size .5em;
-    height: 7%;
-    width: 15%;
-  }
-
-  .js-current-hp {
-    font-size: 1.2em
-  }
-
-  .answers {
-    font-size: .6em;
-    width: 30%;
-  }
-
-  .answer-submit {
-    width: 20%;
-    height: 20%;
-  }
-
-
-}
-
-@media screen and (max-width:370px) {
-  
-  .p1, .p2 {
-    font-size:.7em;
-  }
-
-  button.welcome-text{
-    width: 275px;
-    height:350px;
-  }
-  div.welcome-screen.js-welcome-screen {
-    width: 275px;
-    height:350px
-  }
-  
-  .char {
-    top: 65px;
-  }
-
-  .avatar {
-    height: 13%;
-    left: 10%
-  }
-
-  .question {
-    font-size: .5em;
-    height: 14%;
-    line-height: 130%;
-  }
-  
-  .js-current-hp {
-    font-size: 1em;
-
-  }
-  .answers{
-    width: 35%;
-    border: 1px white solid;
-    font-size: .45em;
-    height: 10%;
-  }
-
-  .answer-C {
-    top: 55%;
-  }
-
-  .answer-D {
-    top : 55%
-  }
-}
